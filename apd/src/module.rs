@@ -61,10 +61,10 @@ fn exec_install_script(module_file: &str) -> Result<()> {
                 defs::BINARY_DIR.trim_end_matches('/')
             ),
         )
-        .env("APATCH", "true")
-        .env("APATCH_VER", defs::VERSION_NAME)
-        .env("APATCH_VER_CODE", defs::VERSION_CODE)
-        .env("APATCH_BIND_MOUNT", format!("{}", !should_use_overlayfs()?))
+        .env("YAPatch", "true")
+        .env("YAPatch_VER", defs::VERSION_NAME)
+        .env("YAPatch_VER_CODE", defs::VERSION_CODE)
+        .env("YAPatch_BIND_MOUNT", format!("{}", !should_use_overlayfs()?))
         .env("OUTFD", "1")
         .env("ZIPFILE", realpath)
         .status()?;
@@ -189,10 +189,10 @@ fn exec_script<T: AsRef<Path>>(path: T, wait: bool) -> Result<()> {
         .arg("sh")
         .arg(path.as_ref())
         .env("ASH_STANDALONE", "1")
-        .env("APATCH", "true")
-        .env("APATCH_VER", defs::VERSION_NAME)
-        .env("APATCH_VER_CODE", defs::VERSION_CODE)
-        .env("APATCH_BIND_MOUNT", format!("{}", !should_use_overlayfs()?))
+        .env("YAPatch", "true")
+        .env("YAPatch_VER", defs::VERSION_NAME)
+        .env("YAPatch_VER_CODE", defs::VERSION_CODE)
+        .env("YAPatch_BIND_MOUNT", format!("{}", !should_use_overlayfs()?))
         .env(
             "PATH",
             format!(
@@ -300,9 +300,6 @@ pub fn prune_modules() -> Result<()> {
 
 fn _install_module(zip: &str) -> Result<()> {
     ensure_boot_completed()?;
-
-    // print banner
-    println!(include_str!("banner"));
 
     assets::ensure_binaries().with_context(|| "binary missing")?;
 

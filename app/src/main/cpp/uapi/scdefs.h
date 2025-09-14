@@ -1,10 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 /* 
  * Copyright (C) 2023 bmax121. All Rights Reserved.
+ * Copyright (C) 2025 Yervant7. All Rights Reserved.
  */
 
 #ifndef _KP_UAPI_SCDEF_H_
 #define _KP_UAPI_SCDEF_H_
+
+#include <sys/types.h>
 
 static inline long hash_key(const char *key)
 {
@@ -48,17 +51,14 @@ struct kernel_storage
     int len;
 };
 
-#define SUPERCALL_KSTORAGE_ALLOC_GROUP 0x1040
-#define SUPERCALL_KSTORAGE_WRITE 0x1041
-#define SUPERCALL_KSTORAGE_READ 0x1042
-#define SUPERCALL_KSTORAGE_LIST_IDS 0x1043
-#define SUPERCALL_KSTORAGE_REMOVE 0x1044
-#define SUPERCALL_KSTORAGE_REMOVE_GROUP 0x1045
+#define SUPERCALL_ANDROID_HIDE_FILE_ADD 0x1120
+#define SUPERCALL_ANDROID_HIDE_FILE_REMOVE 0x1121
 
-#define KSTORAGE_SU_LIST_GROUP 0
-#define KSTORAGE_EXCLUDE_LIST_GROUP 1
-#define KSTORAGE_UNUSED_GROUP_2 2
-#define KSTORAGE_UNUSED_GROUP_3 3
+#define SUPERCALL_ANDROID_SPOOF_UNAME_SET 0x1130
+#define SUPERCALL_ANDROID_SPOOF_UNAME_REMOVE 0x1131
+
+#define SUPERCALL_SET_EXCLUDE_LIST 0x1140
+#define SUPERCALL_IS_UID_EXCLUDED 0x1141
 
 #define SUPERCALL_BOOTLOG 0x10fd
 #define SUPERCALL_PANIC 0x10fe

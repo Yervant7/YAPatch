@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="patch_warnning">Ang instalasyon na ito ay pwede ikaka-sira ng inyong kagamitan, tiyakin muna kung ang iyong data ay naka-backup.</string>
     <string name="kernel_patch">KernelPatch</string>
@@ -9,9 +9,9 @@
     <string name="send_log">Send Log</string>
     <string name="home_patch_set_key_desc">Kredensiyal para sa KernelPatch</string>
     <string name="home_install_unknown">Hindi alam</string>
-    <string name="home_click_to_learn_apatch">Alamin ang mga features ng AndroidPatch at kung paano ito gamitin</string>
+    <string name="home_click_to_learn_yapatch">Alamin ang mga features ng AndroidPatch at kung paano ito gamitin</string>
     <string name="home_installing">Installing</string>
-    <string name="home_learn_apatch">Alamin ang AndroidPatch</string>
+    <string name="home_learn_yapatch">Alamin ang AndroidPatch</string>
     <string name="home_click_to_install">I-click para mag install</string>
     <string name="patch_set_superkey">I-set ang SuperKey</string>
     <string name="home_working">Gumagana</string>
@@ -20,7 +20,7 @@
     <string name="home_patch_next_step">Susunod na hakbang</string>
     <string name="home_auth_key_desc">Magsimula ng trabaho pagkatapos ng sertipikasyon</string>
     <string name="super_key">SuperKey</string>
-    <string name="home_apatch_version">APatch: %s</string>
+    <string name="home_yapatch_version">yapatch: %s</string>
     <string name="home_su_path">su: %s</string>
     <string name="home_auth_key_title">Ilagay ang superkey</string>
     <string name="home_ap_cando_install">I-install</string>

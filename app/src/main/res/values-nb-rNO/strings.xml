@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="apm_desc">Beskrivelse</string>
     <string name="home">Hjem</string>
     <string name="kernel_patch">Kjerneoppdatering</string>
@@ -11,9 +11,9 @@
     <string name="reboot_recovery">Omstart til gjenoppretting</string>
     <string name="reboot_bootloader">Omstart til oppstartslaster</string>
     <string name="reboot_edl">Omstart til EDL</string>
-    <string name="home_learn_apatch">Lær deg APatch</string>
+    <string name="home_learn_yapatch">Lær deg yapatch</string>
     <string name="send_log">Send loggen</string>
-    <string name="home_click_to_learn_apatch">Lær mer om funksjonene i AndroidPatch og hvordan det brukes</string>
+    <string name="home_click_to_learn_yapatch">Lær mer om funksjonene i AndroidPatch og hvordan det brukes</string>
     <string name="safe_mode">Trygt modus</string>
     <string name="home_patch_next_step">Neste steg</string>
     <string name="home_click_to_install">Klikk for å installere</string>
@@ -21,7 +21,7 @@
     <string name="home_installing">Installerer</string>
     <string name="home_need_update">Ny versjon tilgjengelig</string>
     <string name="kpatch_version">Versjon: %s</string>
-    <string name="apatch_version_update">Versjon: %s → %s</string>
+    <string name="yapatch_version_update">Versjon: %s → %s</string>
     <string name="home_su_path">su: %s</string>
     <string name="home_auth_key_desc">Start kjøring etter sertifisering</string>
     <string name="home_ap_cando_install">Installer</string>
@@ -55,14 +55,14 @@
     <string name="home_not_installed">Ikke installert</string>
     <string name="home_install_unknown">Ukjent</string>
     <string name="apm_start_downloading">Start nedlasting: %s</string>
-    <string name="apatch_version">Versjon: %s</string>
+    <string name="yapatch_version">Versjon: %s</string>
     <string name="kpm_load_toast_failed">Innlasting mislyktes</string>
     <string name="patch_warnning">Installasjon medfører risiko. Forsikre deg om at dataen din er sikkerhetskopiert.</string>
     <string name="reboot_download">Start på nytt for å laste ned</string>
     <string name="about_source_code"><![CDATA[<p> Vis kildekoden %1$s<p/> Bli med på %2$s kanalen vår <p/> Bli med i%3$s igruppa vår]]></string>
     <string name="kpm_unload_confirm">Vil du laste ut modulen «%s»?</string>
-    <string name="home_apatch_version">APatch: %s</string>
-    <string name="su_pkg_excluded_setting_summary">Hvis du aktiverer dette alternativet, kan APatch gjenopprette filer som er endret av modulene i denne appen.</string>
+    <string name="home_yapatch_version">yapatch: %s</string>
+    <string name="su_pkg_excluded_setting_summary">Hvis du aktiverer dette alternativet, kan yapatch gjenopprette filer som er endret av modulene i denne appen.</string>
     <string name="su_pkg_excluded_setting_title">Ekskluder modifikasjoner</string>
     <string name="home_selinux_status_permissive">Tilforlatelig</string>
     <string name="kpm_apm_empty">Ingen modul innlastet</string>
@@ -85,11 +85,11 @@
     <string name="apm_failed_to_enable">Kunne ikke skru på «%s»-modulen</string>
     <string name="apm_failed_to_disable">Kunne ikke skru av «%s»-modulen</string>
     <string name="apm_uninstall_confirm">Avinstaller «%s»-modulen?</string>
-    <string name="home_new_apatch_found">Klikk for å installere ny versjon %s.</string>
+    <string name="home_new_yapatch_found">Klikk for å installere ny versjon %s.</string>
     <string name="apm_downloading">Laster ned \"%s\" modul…</string>
     <string name="settings_night_mode_follow_sys">Følg systemets mørke tema</string>
     <string name="apm_update">Oppdater</string>
-    <string name="hide_apatch_manager_failure">Kunne ikke skjule, vennligst rapporter feilen!</string>
+    <string name="hide_yapatch_manager_failure">Kunne ikke skjule, vennligst rapporter feilen!</string>
     <string name="apm_new_version_available">Ny versjon %s er tilgjengelig, trykk for å oppgradere.</string>
     <string name="settings_night_theme_enabled">Aktiver mørkt tema</string>
     <string name="system_default">Systemstandard</string>
@@ -152,8 +152,8 @@
     <string name="patch_item_bootimg">bootimg</string>
     <string name="patch_item_bootimg_slot">Spor</string>
     <string name="patch_item_set_skey_label">SuperKey skal være 8–63 tegn lang og inneholde tall og bokstaver, men ingen spesialtegn.</string>
-    <string name="hide_apatch_manager_summary">Installer en ny administratorapp med en tilfeldig ID og tilpasset navn</string>
-    <string name="hide_apatch_manager">Skjul APatch Manager</string>
+    <string name="hide_yapatch_manager_summary">Installer en ny administratorapp med en tilfeldig ID og tilpasset navn</string>
+    <string name="hide_yapatch_manager">Skjul yapatch Manager</string>
     <string name="settings_global_namespace_mode">Global navnrom modus</string>
     <string name="patch_item_kpimg_config">Konfig:</string>
     <string name="patch_item_new_extra_kpm">Legg inn på nytt</string>
@@ -166,5 +166,5 @@
     <string name="apm">APModul</string>
     <string name="apm_not_installed">AndroidPatch er ikke innstallert</string>
     <string name="apm_magisk_conflict">Modulene er utilgjengelige på grunn av en konflikt med Magisk!</string>
-    <string name="hide_apatch_dialog_summary">Den vil bli brukt som den nye appetiketten som vises i oppstartsprogrammet.</string>
+    <string name="hide_yapatch_dialog_summary">Den vil bli brukt som den nye appetiketten som vises i oppstartsprogrammet.</string>
 </resources>

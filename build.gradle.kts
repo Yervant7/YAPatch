@@ -9,13 +9,13 @@ plugins {
     alias(libs.plugins.kotlin.compose.compiler) apply false
 }
 
-project.ext.set("kernelPatchVersion", "0.12.0")
+project.ext.set("kernelPatchVersion", "0.15.0")
 
 val androidMinSdkVersion = 26
 val androidTargetSdkVersion = 35
 val androidCompileSdkVersion = 35
 
-val androidCompileNdkVersion = "28.1.13356709"
+val androidCompileNdkVersion = "29.0.14033849"
 val managerVersionCode by extra(getVersionCode())
 val managerVersionName by extra(getVersionName())
 

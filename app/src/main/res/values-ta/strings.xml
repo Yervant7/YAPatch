@@ -28,8 +28,8 @@
     <string name="settings_global_namespace_mode_summary">அனைத்து ரூட் அமர்வுகளும் உலகளாவிய மவுண்ட் பெயர்வெளியைப் பயன்படுத்துகின்றன</string>
     <string name="settings_check_update">புதுப்பிப்பைச் சரிபார்க்கவும்</string>
     <string name="settings_check_update_summary">பயன்பாட்டைத் திறக்கும்போது புதுப்பிப்புகளை தானாகவே சரிபார்க்கவும்</string>
-    <string name="home_learn_apatch">அப்பாச்சி கற்றுக்கொள்ளுங்கள்</string>
-    <string name="home_click_to_learn_apatch">அப்பாட்சின் நற்பொருத்தங்கள் மற்றும் எவ்வாறு பயன்படுத்துவது என்பது பற்றி அறிக</string>
+    <string name="home_learn_yapatch">அப்பாச்சி கற்றுக்கொள்ளுங்கள்</string>
+    <string name="home_click_to_learn_yapatch">அப்பாட்சின் நற்பொருத்தங்கள் மற்றும் எவ்வாறு பயன்படுத்துவது என்பது பற்றி அறிக</string>
     <string name="send_log">பதிவுகள் அனுப்பவும்</string>
     <string name="save_log">பதிவுகளை சேமிக்கவும்</string>
     <string name="settings_clear_super_key_dialog">நீங்கள் உண்மையில் தொடர விரும்புகிறீர்களா?</string>
@@ -48,8 +48,8 @@
     <string name="home_working">வேலை</string>
     <string name="home_installing">நிறுவுகிறது</string>
     <string name="kpatch_version">பதிப்பு: %s</string>
-    <string name="apatch_version">பதிப்பு: %s</string>
-    <string name="apatch_version_update">பதிப்பு: %s -&gt; %s</string>
+    <string name="yapatch_version">பதிப்பு: %s</string>
+    <string name="yapatch_version_update">பதிப்பு: %s -&gt; %s</string>
     <string name="kpatch_version_update">பதிப்பு: %s -&gt; %s</string>
     <string name="home_auth_key_title">சூப்பர்கி உள்ளிடவும்</string>
     <string name="kpatch_shadow_path_title">கேஒட்டு</string>
@@ -96,7 +96,7 @@
     <string name="home_system_version">கணினி பதிப்பு</string>
     <string name="home_kpatch_version">கர்னல்பாட்ச் பதிப்பு</string>
     <string name="home_su_path">இயங்கக்கூடிய சு</string>
-    <string name="home_apatch_version">அபட்க் பதிப்பு</string>
+    <string name="home_yapatch_version">அபட்க் பதிப்பு</string>
     <string name="kpm">Kpmodule</string>
     <string name="kpm_kp_not_installed">கர்னல்பாட்ச் நிறுவப்படவில்லை</string>
     <string name="kpm_add_kpm">கே.பி.எம் சேர்க்கவும்</string>
@@ -139,12 +139,12 @@
     <string name="apm_downloading">\"%s\" தொகுதி பதிவிறக்குகிறது…</string>
     <string name="apm_start_downloading">%s பதிவிறக்கத் தொடங்குங்கள்</string>
     <string name="apm_new_version_available">புதிய பதிப்பு %s கிடைக்கின்றன, மேம்படுத்த சொடுக்கு செய்க.</string>
-    <string name="hide_apatch_manager">அபாட்ச் மேலாளரை மறைக்கவும்</string>
-    <string name="hide_apatch_manager_summary">சீரற்ற அடையாளம் மற்றும் தனிப்பயன் சிட்டை மூலம் புதிய மேலாளர் பயன்பாட்டை நிறுவவும்</string>
-    <string name="hide_apatch_dialog_new_manager_name">புதிய மேலாளர் பெயர்</string>
-    <string name="hide_apatch_dialog_summary">இது துவக்கத்தில் காட்டப்பட்டுள்ள புதிய பயன்பாட்டு லேபிளாக பயன்படுத்தப்படும்</string>
+    <string name="hide_yapatch_manager">அபாட்ச் மேலாளரை மறைக்கவும்</string>
+    <string name="hide_yapatch_manager_summary">சீரற்ற அடையாளம் மற்றும் தனிப்பயன் சிட்டை மூலம் புதிய மேலாளர் பயன்பாட்டை நிறுவவும்</string>
+    <string name="hide_yapatch_dialog_new_manager_name">புதிய மேலாளர் பெயர்</string>
+    <string name="hide_yapatch_dialog_summary">இது துவக்கத்தில் காட்டப்பட்டுள்ள புதிய பயன்பாட்டு லேபிளாக பயன்படுத்தப்படும்</string>
     <string name="apm_update">புதுப்பிப்பு</string>
-    <string name="hide_apatch_manager_failure">மறைக்கத் தவறிவிட்டது. பிழையைப் புகாரளிக்கவும்!</string>
+    <string name="hide_yapatch_manager_failure">மறைக்கத் தவறிவிட்டது. பிழையைப் புகாரளிக்கவும்!</string>
     <string name="setting_reset_su_path">சு பாதையை மீட்டமைக்கவும்</string>
     <string name="setting_reset_su_new_path">புதிய முழு பாதை</string>
     <string name="apm_webui_open">திற</string>
@@ -153,7 +153,7 @@
     <string name="enable_web_debugging_summary">WebUI ஐ பிழைத்திருத்த பயன்படுத்தலாம். தேவைப்படும்போது மட்டுமே இயக்கவும்.</string>
     <string name="settings_donot_store_superkey">சூப்பர்கீவை உள்ளக சேமிக்க வேண்டாம்</string>
     <string name="settings_donot_store_superkey_summary">மேலாளர் தொடங்கும் ஒவ்வொரு முறையும் சூப்பர்கியை அங்கீகரிக்கவும்</string>
-    <string name="home_new_apatch_found">புதிய பதிப்பு %s கிடைக்கின்றன, மேம்படுத்த சொடுக்கு செய்க.</string>
+    <string name="home_new_yapatch_found">புதிய பதிப்பு %s கிடைக்கின்றன, மேம்படுத்த சொடுக்கு செய்க.</string>
     <string name="mode_select_page_title">நிறுவவும்</string>
     <string name="mode_select_page_patch_and_install">இணைப்பு மற்றும் நிறுவவும்</string>
     <string name="mode_select_page_select_file">இணைப்புக்கு துவக்க படத்தைத் தேர்ந்தெடுக்கவும்</string>

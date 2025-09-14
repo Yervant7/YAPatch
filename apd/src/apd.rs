@@ -17,7 +17,7 @@ use crate::{
 use rustix::thread::{Gid, Uid, set_thread_res_gid, set_thread_res_uid};
 
 fn print_usage(opts: Options) {
-    let brief = "APatch\n\nUsage: <command> [options] [-] [user [argument...]]".to_string();
+    let brief = "YAPatch\n\nUsage: <command> [options] [-] [user [argument...]]".to_string();
     print!("{}", opts.usage(&brief));
 }
 
@@ -110,7 +110,7 @@ pub fn root_shell() -> Result<()> {
     }
 
     if matches.opt_present("v") {
-        println!("{}:APatch", defs::VERSION_NAME);
+        println!("{}:YAPatch", defs::VERSION_NAME);
         return Ok(());
     }
 

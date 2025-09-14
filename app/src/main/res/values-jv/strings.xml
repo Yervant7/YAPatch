@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="reboot">Reboot</string>
     <string name="settings">Aturan</string>
@@ -16,8 +16,8 @@
     <string name="reboot_bootloader">Mbalek nang Bootloader</string>
     <string name="reboot_edl">Mbalek nang EDL</string>
     <string name="about">Tentang</string>
-    <string name="home_learn_apatch">Sinau AndroidPatch</string>
-    <string name="home_click_to_learn_apatch">Sinau fitur AndroidPatch lan coro ngunakno</string>
+    <string name="home_learn_yapatch">Sinau AndroidPatch</string>
+    <string name="home_click_to_learn_yapatch">Sinau fitur AndroidPatch lan coro ngunakno</string>
     <string name="safe_mode">Mode aman</string>
     <string name="super_key">SuperKey</string>
 </resources>

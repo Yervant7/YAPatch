@@ -3,6 +3,7 @@
  * Copyright (C) 2023 bmax121. All Rights Reserved.
  * Copyright (C) 2024 GarfieldHan. All Rights Reserved.
  * Copyright (C) 2024 1f2003d5. All Rights Reserved.
+ * Copyright (C) 2025 Yervant7. All Rights Reserved.
  */
 
 #include <cstring>
@@ -10,6 +11,22 @@
 
 #include "apjni.hpp"
 #include "supercall.h"
+
+jint nativeAndroidHideFilesAdd(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr) {
+    return android_hide_files_add(env, /* this */ nullptr, super_key_jstr, filename_jstr);
+}
+
+jint nativeAndroidHideFilesRemove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr) {
+    return android_hide_files_remove(env, /* this */ nullptr, super_key_jstr, filename_jstr);
+}
+
+jint nativeAndroidSpoofUnameSet(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field, jstring value_jstr) {
+    return android_spoof_uname_set(env, /* this */ nullptr, super_key_jstr, field, value_jstr);
+}
+
+jint nativeAndroidSpoofUnameRemove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field) {
+    return android_spoof_uname_remove(env, /* this */ nullptr, super_key_jstr, field);
+}
 
 jboolean nativeReady(JNIEnv *env, jobject /* this */, jstring super_key_jstr) {
     ensureSuperKeyNonNull(super_key_jstr);
@@ -101,7 +118,7 @@ jobject nativeSuProfile(JNIEnv *env, jobject /* this */, jstring super_key_jstr,
         LOGE("nativeSuProfile error: %ld\n", rc);
         return nullptr;
     }
-    jclass cls = env->FindClass("me/bmax/apatch/Natives$Profile");
+    jclass cls = env->FindClass("me/yervant/yapatch/Natives$Profile");
     jmethodID constructor = env->GetMethodID(cls, "<init>", "()V");
     jfieldID uidField = env->GetFieldID(cls, "uid", "I");
     jfieldID toUidField = env->GetFieldID(cls, "toUid", "I");
@@ -142,7 +159,7 @@ jobject nativeControlKernelPatchModule(JNIEnv *env, jobject /* this */, jstring 
         LOGE("nativeControlKernelPatchModule error: %ld", rc);
     }
 
-    jclass cls = env->FindClass("me/bmax/apatch/Natives$KPMCtlRes");
+    jclass cls = env->FindClass("me/yervant/yapatch/Natives$KPMCtlRes");
     jmethodID constructor = env->GetMethodID(cls, "<init>", "()V");
     jfieldID rcField = env->GetFieldID(cls, "rc", "J");
     jfieldID outMsg = env->GetFieldID(cls, "outMsg", "Ljava/lang/String;");
@@ -257,7 +274,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         return JNI_FALSE;
     }
 
-    auto clazz = JNI_FindClass(env, "me/bmax/apatch/Natives");
+    auto clazz = JNI_FindClass(env, "me/yervant/yapatch/Natives");
     if (clazz.get() == nullptr) [[unlikely]] {
         LOGE("Failed to find Natives class");
         return JNI_FALSE;
@@ -271,9 +288,9 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         {"nativeSetUidExclude", "(Ljava/lang/String;II)I", reinterpret_cast<void *>(&nativeSetUidExclude)},
         {"nativeGetUidExclude", "(Ljava/lang/String;I)I", reinterpret_cast<void *>(&nativeGetUidExclude)},
         {"nativeSuUids", "(Ljava/lang/String;)[I", reinterpret_cast<void *>(&nativeSuUids)},
-        {"nativeSuProfile", "(Ljava/lang/String;I)Lme/bmax/apatch/Natives$Profile;", reinterpret_cast<void *>(&nativeSuProfile)},
+        {"nativeSuProfile", "(Ljava/lang/String;I)Lme/yervant/yapatch/Natives$Profile;", reinterpret_cast<void *>(&nativeSuProfile)},
         {"nativeLoadKernelPatchModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeLoadKernelPatchModule)},
-        {"nativeControlKernelPatchModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/bmax/apatch/Natives$KPMCtlRes;", reinterpret_cast<void *>(&nativeControlKernelPatchModule)},
+        {"nativeControlKernelPatchModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/yervant/yapatch/Natives$KPMCtlRes;", reinterpret_cast<void *>(&nativeControlKernelPatchModule)},
         {"nativeUnloadKernelPatchModule", "(Ljava/lang/String;Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeUnloadKernelPatchModule)},
         {"nativeKernelPatchModuleNum", "(Ljava/lang/String;)J", reinterpret_cast<void *>(&nativeKernelPatchModuleNum)},
         {"nativeKernelPatchModuleList", "(Ljava/lang/String;)Ljava/lang/String;", reinterpret_cast<void *>(&nativeKernelPatchModuleList)},
@@ -282,6 +299,10 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         {"nativeRevokeSu", "(Ljava/lang/String;I)J", reinterpret_cast<void *>(&nativeRevokeSu)},
         {"nativeSuPath", "(Ljava/lang/String;)Ljava/lang/String;", reinterpret_cast<void *>(&nativeSuPath)},
         {"nativeResetSuPath", "(Ljava/lang/String;Ljava/lang/String;)Z", reinterpret_cast<void *>(&nativeResetSuPath)},
+        {"nativeAndroidHideFilesAdd", "(Ljava/lang/String;Ljava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidHideFilesAdd)},
+        {"nativeAndroidHideFilesRemove", "(Ljava/lang/String;Ljava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidHideFilesRemove)},
+        {"nativeAndroidSpoofUnameSet", "(Ljava/lang/String;ILjava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidSpoofUnameSet)},
+        {"nativeAndroidSpoofUnameRemove", "(Ljava/lang/String;I)I", reinterpret_cast<void *>(&nativeAndroidSpoofUnameRemove)},
     };
 
     if (JNI_RegisterNatives(env, clazz, gMethods, sizeof(gMethods) / sizeof(gMethods[0])) < 0) [[unlikely]] {

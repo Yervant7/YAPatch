@@ -16,15 +16,15 @@
     <string name="apm_uninstall_confirm">Disinstallare il modulo \"%s\"?</string>
     <string name="su_pkg_excluded_setting_title">Escludi modifiche</string>
     <string name="reboot_download">Riavvia in modalità Download</string>
-    <string name="home_click_to_learn_apatch">Scopri le caratteristiche di APatch e come utilizzarlo</string>
+    <string name="home_click_to_learn_yapatch">Scopri le caratteristiche di yapatch e come utilizzarlo</string>
     <string name="apm_version">Versione</string>
-    <string name="su_pkg_excluded_setting_summary">Abilita questa opzione per permettere ad APatch di ripristinare qualsiasi file modificato dai moduli per questa applicazione.</string>
+    <string name="su_pkg_excluded_setting_summary">Abilita questa opzione per permettere ad yapatch di ripristinare qualsiasi file modificato dai moduli per questa applicazione.</string>
     <string name="reboot_edl">Riavvia in modalità EDL</string>
     <string name="home_installing">Installazione in corso</string>
     <string name="apm_start_downloading">Download di %s avviato</string>
     <string name="su_selinux_via_hook">Aggira tramite hook</string>
     <string name="home_ap_cando_uninstall">Disinstalla</string>
-    <string name="apatch_version">Versione: %s</string>
+    <string name="yapatch_version">Versione: %s</string>
     <string name="apm_overlay_fs_not_available">I moduli non sono disponibili poiché OverlayFS è disabilitato dal kernel</string>
     <string name="kpm_version">Versione</string>
     <string name="su_refresh">Ricarica</string>
@@ -32,7 +32,7 @@
     <string name="su_show_system_apps">Mostra app di sistema</string>
     <string name="home_ap_cando_install">Installa</string>
     <string name="reboot_recovery">Riavvia in Recovery</string>
-    <string name="home_learn_apatch">Scopri APatch</string>
+    <string name="home_learn_yapatch">Scopri yapatch</string>
     <string name="apm_failed_to_disable">Impossibile disabilitare il modulo \"%s\"</string>
     <string name="kernel_patch">Patch di Kernel</string>
     <string name="home_click_to_install">Clicca per installare</string>
@@ -54,7 +54,7 @@
     <string name="home_selinux_status_disabled">Spento</string>
     <string name="settings">Impostazioni</string>
     <string name="apm_new_version_available">Clicca per installare la nuova versione %s.</string>
-    <string name="apatch_version_update">Versione: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Versione: %s -&gt; %s</string>
     <string name="home_working">In esecuzione 😋</string>
     <string name="apm_empty">Nessun modulo installato</string>
     <string name="kpm_load">Carica</string>
@@ -79,13 +79,13 @@
     <string name="home_kernel">Versione Kernel</string>
     <string name="home_selinux_status_enforcing">Rinforzo</string>
     <string name="patch_title">Applica una patch</string>
-    <string name="home_apatch_version">Versione di APatch</string>
+    <string name="home_yapatch_version">Versione di yapatch</string>
     <string name="home_selinux_status_permissive">Permissivo</string>
     <string name="apm_changelog">Registro delle modifiche</string>
     <string name="home_su_path">Eseguibile su</string>
     <string name="apm">APModule</string>
     <string name="super_key">Superchiave</string>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="kpm">KPModule</string>
     <string name="clear_super_key">Elimina Superchiave</string>
     <string name="apm_not_installed">AndroidPatch non installato</string>
@@ -118,9 +118,9 @@
     <string name="home_device_info">Dispositivo</string>
     <string name="home_kpatch_version">Versione di KernelPatch</string>
     <string name="kpm_add_kpm">Aggiungi KPM</string>
-    <string name="hide_apatch_manager_summary">Installa una nuova app di gestione con un ID pacchetto casuale e nome applicazione personalizzato</string>
+    <string name="hide_yapatch_manager_summary">Installa una nuova app di gestione con un ID pacchetto casuale e nome applicazione personalizzato</string>
     <string name="setting_reset_su_new_path">Nuovo percorso</string>
-    <string name="home_new_apatch_found">Clicca per aggiornare alla nuova versione disponibile %s</string>
+    <string name="home_new_yapatch_found">Clicca per aggiornare alla nuova versione disponibile %s</string>
     <string name="mode_select_page_title">Installa</string>
     <string name="mode_select_page_patch_and_install">Applica patch e installa</string>
     <string name="kpm_embed">Incorpora</string>
@@ -129,7 +129,7 @@
     <string name="patch_start_patch_btn">Inizia</string>
     <string name="kpatch_shadow_path_title">Kpatch</string>
     <string name="patch_item_kpimg_config">Configurazione:</string>
-    <string name="hide_apatch_dialog_new_manager_name">Nuovo nome del gestore</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Nuovo nome del gestore</string>
     <string name="settings_check_update_summary">Cerca aggiornamenti automaticamente all\'avvio dell\'app</string>
     <string name="patch_mode_install_to_next_slot">Modalità: Installa nello slot successivo (Dopo OTA)</string>
     <string name="enable_web_debugging">Attiva debug di WebView</string>
@@ -140,11 +140,11 @@
     <string name="patch_item_extra_kpm_license">Licenza:</string>
     <string name="patch_item_bootimg_dev">Dispositivo:</string>
     <string name="patch_select_bootimg_btn">Seleziona avvio</string>
-    <string name="hide_apatch_manager_failure">Errore nel nascondere l\'app, per favore segnala il bug!</string>
+    <string name="hide_yapatch_manager_failure">Errore nel nascondere l\'app, per favore segnala il bug!</string>
     <string name="kpm_install">Installa</string>
     <string name="patch_item_extra_args">Argomenti:</string>
     <string name="patch_item_skey">Super chiave</string>
-    <string name="hide_apatch_dialog_summary">Sarà usato come nome dell\'applicazione mostrato nel launcher</string>
+    <string name="hide_yapatch_dialog_summary">Sarà usato come nome dell\'applicazione mostrato nel launcher</string>
     <string name="failure">Fallimento</string>
     <string name="patch_item_bootimg">Bootimg</string>
     <string name="patch_start_unpatch_btn">Rimuovi patch</string>
@@ -158,12 +158,12 @@
     <string name="patch_mode_bootimg_patch">Modalità: Applica patch</string>
     <string name="patch_item_error">!!ERRORE!!</string>
     <string name="patch_item_extra_name">Nome:</string>
-    <string name="hide_apatch_manager">Nascondi il gestore di APatch</string>
+    <string name="hide_yapatch_manager">Nascondi il gestore di yapatch</string>
     <string name="success">Successo</string>
     <string name="kpm_control_dialog_content">Parametri di controllo dell\'ingresso:</string>
     <string name="kpm_control_ok">Operazione riuscita!</string>
     <string name="settings_night_mode_follow_sys">Segui il Tema scuro di sistema</string>
-    <string name="home_dialog_auth_fail_content">Impossibile autenticare la Super chiave, APatch non può funzionare correttamente.\nEcco alcuni possibili motivi per il fallimento dell\'autenticazione:\n1. Non hai applicato la patch all\'immagine di avvio con KernelPatch.\n2. L\'immagine di avvio con patch non è stata installata.\n3. Errata Super chiave.\n4. Il dispositivo non supporta APatch e KernelPatch.\nControlla e riprova. Se ci sono ancora problemi, puoi sempre fare domande sulla pagina dei problemi del repository ufficiale.</string>
+    <string name="home_dialog_auth_fail_content">Impossibile autenticare la Super chiave, yapatch non può funzionare correttamente.\nEcco alcuni possibili motivi per il fallimento dell\'autenticazione:\n1. Non hai applicato la patch all\'immagine di avvio con KernelPatch.\n2. L\'immagine di avvio con patch non è stata installata.\n3. Errata Super chiave.\n4. Il dispositivo non supporta yapatch e KernelPatch.\nControlla e riprova. Se ci sono ancora problemi, puoi sempre fare domande sulla pagina dei problemi del repository ufficiale.</string>
     <string name="kpm_control_paramters">Parametri</string>
     <string name="settings_night_mode_follow_sys_summary">Passa automaticamente al Tema scuro usando le impostazioni di sistema</string>
     <string name="home_more_menu_about">Chi siamo</string>

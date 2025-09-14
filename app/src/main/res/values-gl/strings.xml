@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="home">Fogar</string>
     <string name="patch_warnning">A instalación conleva uns riscos. Por favor, asegura os teus datos.</string>
     <string name="patch">Parche</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="patch_warnning">Η εγκατάσταση συνοδεύεται από κινδύνους. Βεβαιωθείτε ότι έχετε δημιουργήσει αντίγραφα ασφαλείας των δεδομένων σας.</string>
     <string name="kernel_patch">KernelPatch</string>
     <string name="android_patch">AndroidPatch</string>
@@ -13,8 +13,8 @@
     <string name="reboot_recovery">Επανεκκίνηση στο Recovery</string>
     <string name="reboot_download">Επανεκκίνηση για λήψη</string>
     <string name="about">Σχετικά με το</string>
-    <string name="home_learn_apatch">Μάθετε το APatch</string>
-    <string name="home_click_to_learn_apatch">Μάθετε για τα χαρακτηριστικά του APatch και πώς να το χρησιμοποιείτε</string>
+    <string name="home_learn_yapatch">Μάθετε το yapatch</string>
+    <string name="home_click_to_learn_yapatch">Μάθετε για τα χαρακτηριστικά του yapatch και πώς να το χρησιμοποιείτε</string>
     <string name="settings_app_language">Γλώσσα</string>
     <string name="patch">Επιδιόρθωση</string>
     <string name="home_auth_key_title">Εισαγάγετε το ΥπέρΚλειδί</string>
@@ -26,7 +26,7 @@
     <string name="patch_title">Επιδιόρθωση</string>
     <string name="kpatch_version">Έκδοση: %s</string>
     <string name="kpm_unload_confirm">Ξεφόρτωση ενότητας \"%s\"?</string>
-    <string name="apatch_version">Έκδοση: %s</string>
+    <string name="yapatch_version">Έκδοση: %s</string>
     <string name="home_fingerprint">Δακτυλικό αποτύπωμα</string>
     <string name="su_title">Υπερχρήστης</string>
     <string name="apm_downloading">Λήψη της ενότητας \"%s\"…</string>
@@ -60,7 +60,7 @@
     <string name="home_not_installed">Δεν έχει εγκατασταθεί</string>
     <string name="home_install_unknown">Δεν έχει εγκατασταθεί ή πιστοποιηθεί</string>
     <string name="home_installing">Γίνεται εγκατάσταση</string>
-    <string name="apatch_version_update">Έκδοση: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Έκδοση: %s -&gt; %s</string>
     <string name="home_su_path">Εκτελέσιμο su</string>
     <string name="home_auth_key_desc">Έναρξη μετά την πιστοποίηση</string>
     <string name="home_ap_cando_update">Ενημέρωση</string>
@@ -83,7 +83,7 @@
     <string name="apm_version">Έκδοση</string>
     <string name="apm_author">Δημιουργός</string>
     <string name="home_ap_cando_uninstall">Απεγκατάσταση</string>
-    <string name="home_apatch_version">Έκδοση APatch</string>
+    <string name="home_yapatch_version">Έκδοση yapatch</string>
     <string name="kpm_kp_not_installed">Το KernelPatch δεν έχει εγκατασταθεί</string>
     <string name="kpm_load_toast_succ">Επιτυχής φόρτωση</string>
     <string name="kpm_apm_empty">Δεν έχει φορτωθεί καμία ενότητα</string>
@@ -110,12 +110,12 @@
     <string name="purple_theme">Μώβ</string>
     <string name="crash_handle_title">Η εφαρμογή κατέρρευσε…</string>
     <string name="crash_handle_copy">Αντιγραφή αρχείου καταγραφής σφαλμάτων</string>
-    <string name="su_pkg_excluded_setting_summary">Η ενεργοποίηση αυτής της επιλογής θα επιτρέψει στο APatch να επαναφέρει τυχόν αρχεία που έχουν τροποποιηθεί από τις λειτουργικές μονάδες αυτής της εφαρμογής.</string>
+    <string name="su_pkg_excluded_setting_summary">Η ενεργοποίηση αυτής της επιλογής θα επιτρέψει στο yapatch να επαναφέρει τυχόν αρχεία που έχουν τροποποιηθεί από τις λειτουργικές μονάδες αυτής της εφαρμογής.</string>
     <string name="settings_custom_color_theme">Χρώμα θέματος</string>
     <string name="blue_grey_theme">Μπλέ γκρί</string>
     <string name="enable_web_debugging_summary">Μπορεί να χρησιμοποιηθεί για εντοπισμό σφαλμάτων WebUI, Παρακαλώ ενεργοποιήσει μόνο όταν χρειάζεται.</string>
-    <string name="hide_apatch_manager_summary">Εγκατάσταση μιας εφαρμογής proxy με τυχαίο αναγνωριστικό πακέτου και προσαρμοσμένη ετικέτα εφαρμογής</string>
-    <string name="home_dialog_auth_fail_content">Δεν είναι δυνατός ο έλεγχος ταυτότητας του ΥπέρΚλειδιού, επομένως το APatch δεν μπορεί να λειτουργήσει σωστά.\nΑκολουθούν ορισμένοι πιθανοί λόγοι για την αποτυχία του ελέγχου ταυτότητας:\n1. Δεν επιδιορθώσατε το boot.img με το KernelPatch.\n2. Το διορθωμένο boot.img δεν περάστηκε.\n3. Το ΥπέρΚλειδί είναι λάθος ή περιέχει ειδικούς χαρακτήρες.\n4. Η συσκευή σας δεν υποστηρίζει το APatch και KernelPatch.\n\nΕλέγξτε και δοκιμάστε ξανά. Εάν εξακολουθούν να υπάρχουν προβλήματα, μπορείτε πάντα να κάνετε ερωτήσεις στη σελίδα ζητημάτων του επίσημου αποθετηρίου.</string>
+    <string name="hide_yapatch_manager_summary">Εγκατάσταση μιας εφαρμογής proxy με τυχαίο αναγνωριστικό πακέτου και προσαρμοσμένη ετικέτα εφαρμογής</string>
+    <string name="home_dialog_auth_fail_content">Δεν είναι δυνατός ο έλεγχος ταυτότητας του ΥπέρΚλειδιού, επομένως το yapatch δεν μπορεί να λειτουργήσει σωστά.\nΑκολουθούν ορισμένοι πιθανοί λόγοι για την αποτυχία του ελέγχου ταυτότητας:\n1. Δεν επιδιορθώσατε το boot.img με το KernelPatch.\n2. Το διορθωμένο boot.img δεν περάστηκε.\n3. Το ΥπέρΚλειδί είναι λάθος ή περιέχει ειδικούς χαρακτήρες.\n4. Η συσκευή σας δεν υποστηρίζει το yapatch και KernelPatch.\n\nΕλέγξτε και δοκιμάστε ξανά. Εάν εξακολουθούν να υπάρχουν προβλήματα, μπορείτε πάντα να κάνετε ερωτήσεις στη σελίδα ζητημάτων του επίσημου αποθετηρίου.</string>
     <string name="crash_handle_copied">Το αρχείο καταγραφής σφαλμάτων αντιγράφηκε στο πρόχειρο.</string>
     <string name="settings_global_namespace_mode">Λειτουργία καθολικού χώρου ονομάτων</string>
     <string name="settings_global_namespace_mode_summary">Όλες οι συνεδρίες root χρησιμοποιούν τον χώρο ονομάτων καθολικής προσάρτησης</string>
@@ -135,15 +135,15 @@
     <string name="home_device_info">Συσκευή</string>
     <string name="home_system_version">Έκδοση συστήματος</string>
     <string name="kpm_add_kpm">Προσθήκη KPM</string>
-    <string name="hide_apatch_manager">Απόκρυψη Διαχειριστή APatch</string>
-    <string name="hide_apatch_dialog_new_manager_name">Νέο όνομα διαχειριστή</string>
-    <string name="hide_apatch_dialog_summary">Θα χρησιμοποιηθεί ως η νέα ετικέτα εφαρμογής που εμφανίζεται στο πρόγραμμα εκκίνησης</string>
-    <string name="hide_apatch_manager_failure">Αποτυχία απόκρυψης, Παρακαλώ αναφέρετε το σφάλμα!</string>
+    <string name="hide_yapatch_manager">Απόκρυψη Διαχειριστή yapatch</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Νέο όνομα διαχειριστή</string>
+    <string name="hide_yapatch_dialog_summary">Θα χρησιμοποιηθεί ως η νέα ετικέτα εφαρμογής που εμφανίζεται στο πρόγραμμα εκκίνησης</string>
+    <string name="hide_yapatch_manager_failure">Αποτυχία απόκρυψης, Παρακαλώ αναφέρετε το σφάλμα!</string>
     <string name="settings_donot_store_superkey">Μη αποθήκευση ΥπέρΚλειδιού τοπικά</string>
     <string name="enable_web_debugging">Ενεργοποίηση εντοπισμού σφαλμάτων WebView</string>
     <string name="mode_select_page_patch_and_install">Επιδιόρθωση και Εγκατάσταση</string>
     <string name="mode_select_page_select_file">Επιλογή εικόνας boot για επιδιόρθωση</string>
-    <string name="home_new_apatch_found">Νέα έκδοση %s είναι διαθέσιμη, κλικ για αναβάθμιση.</string>
+    <string name="home_new_yapatch_found">Νέα έκδοση %s είναι διαθέσιμη, κλικ για αναβάθμιση.</string>
     <string name="mode_select_page_title">Εγκατάσταση</string>
     <string name="home_dialog_auth_fail_title">Ο έλεγχος ταυτότητας απέτυχε</string>
     <string name="kpatch_shadow_path_title">kpatch</string>

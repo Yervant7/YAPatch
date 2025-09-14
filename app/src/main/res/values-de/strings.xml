@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
-    <string name="home_click_to_learn_apatch">Erfahre mehr über die Funktionen von APatch und wie man sie verwendet</string>
+    <string name="app_name" translatable="false">yapatch</string>
+    <string name="home_click_to_learn_yapatch">Erfahre mehr über die Funktionen von yapatch und wie man sie verwendet</string>
     <string name="about_source_code"><![CDATA[<p>Quellcode anzeigen unter %1$s<p/>Trete unserem %2$s Kanel bei<p/>Trete unserer %3$s Gruppe bei]]></string>
     <string name="home">Startseite</string>
     <string name="reboot">Neustart</string>
     <string name="settings">Einstellungen</string>
     <string name="home_install_unknown">Unbekannt</string>
     <string name="home_need_update">Eine neue Version ist verfügbar</string>
-    <string name="apatch_version">Version: %s</string>
+    <string name="yapatch_version">Version: %s</string>
     <string name="home_ap_cando_install">Installieren</string>
     <string name="home_ap_cando_update">Aktualisieren</string>
     <string name="home_ap_cando_uninstall">Deinstallieren</string>
@@ -19,14 +19,14 @@
     <string name="kernel_patch">KernelPatch</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="reboot_bootloader">Neustart zum Bootloader</string>
-    <string name="home_learn_apatch">Lerne APatch kennen</string>
+    <string name="home_learn_yapatch">Lerne yapatch kennen</string>
     <string name="home_patch_set_key_desc">Nur Anmeldedaten für KernelPatch</string>
     <string name="home_patch_next_step">Nächster Schritt</string>
     <string name="kpatch_version">Version: %s</string>
-    <string name="apatch_version_update">Version: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Version: %s -&gt; %s</string>
     <string name="home_auth_key_desc">Start nach Zertifizierung</string>
     <string name="home_manager_version">Manager Version</string>
-    <string name="su_pkg_excluded_setting_summary">Durch Aktivierung dieser Option kann APatch alle von den Modulen dieser App geänderten Dateien wiederherstellen.</string>
+    <string name="su_pkg_excluded_setting_summary">Durch Aktivierung dieser Option kann yapatch alle von den Modulen dieser App geänderten Dateien wiederherstellen.</string>
     <string name="apm_failed_to_disable">Das Modul \"%s\" konnte nicht deaktiviert werden</string>
     <string name="home_selinux_status_disabled">Deaktiviert</string>
     <string name="apm_magisk_conflict">Module sind aufgrund eines Konfliktes mit Magisk nicht verfügbar.</string>
@@ -34,7 +34,7 @@
     <string name="apm_start_downloading">Download von %s starten</string>
     <string name="kpm_unload_confirm">Modul \"%s\" entladen?</string>
     <string name="apm_failed_to_enable">Das Modul \"%s\" konnte nicht eingeschaltet werden</string>
-    <string name="home_apatch_version">APatch Version</string>
+    <string name="home_yapatch_version">yapatch Version</string>
     <string name="home_selinux_status">SELinux-Status</string>
     <string name="reboot_recovery">Neustart zum Wiederherstellen</string>
     <string name="reboot_download">Neustart zum Herunterladen</string>
@@ -149,9 +149,9 @@
     <string name="kpm_control">Steuerung</string>
     <string name="kpm_add_kpm">KPM hinzufügen</string>
     <string name="kpm_install">Installieren</string>
-    <string name="hide_apatch_manager">APatch Manager ausblenden</string>
+    <string name="hide_yapatch_manager">yapatch Manager ausblenden</string>
     <string name="setting_reset_su_new_path">Neuer vollständiger Pfad</string>
-    <string name="hide_apatch_dialog_new_manager_name">Neuer Name des Managers</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Neuer Name des Managers</string>
     <string name="mode_select_page_patch_and_install">Patchen und installieren</string>
     <string name="mode_select_page_title">Installieren</string>
     <string name="mode_select_page_select_file">Wählen Sie ein Boot-Image zum Patchen aus</string>
@@ -172,12 +172,12 @@
     <string name="settings_use_system_color_theme">Systemfarbschema</string>
     <string name="patch_mode_install_to_next_slot">Modus: In inaktivem Slot installieren (Nach OTA)</string>
     <string name="setting_reset_su_path">su-Pfad zurücksetzen</string>
-    <string name="hide_apatch_manager_failure">Verstecken fehlgeschlagen. Bitte melde den Fehler!</string>
+    <string name="hide_yapatch_manager_failure">Verstecken fehlgeschlagen. Bitte melde den Fehler!</string>
     <string name="settings_donot_store_superkey">Superschlüssel nicht lokal speichern</string>
-    <string name="home_new_apatch_found">Eine neue Version %s ist verfügbar, klicken Sie hier, um zu aktualisieren.</string>
+    <string name="home_new_yapatch_found">Eine neue Version %s ist verfügbar, klicken Sie hier, um zu aktualisieren.</string>
     <string name="mode_select_page_install_inactive_slot">Auf inaktiven Slot installieren (Nach OTA)</string>
-    <string name="hide_apatch_manager_summary">Installieren Sie eine Proxy-App mit einer zufälligen Paket-ID und einer benutzerdefinierten App-Bezeichnung</string>
-    <string name="hide_apatch_dialog_summary">Wird als App-Bezeichnung auf dem Home-Screen genutzt</string>
+    <string name="hide_yapatch_manager_summary">Installieren Sie eine Proxy-App mit einer zufälligen Paket-ID und einer benutzerdefinierten App-Bezeichnung</string>
+    <string name="hide_yapatch_dialog_summary">Wird als App-Bezeichnung auf dem Home-Screen genutzt</string>
     <string name="settings_donot_store_superkey_summary">Authentifiziere den SuperKey jedes Mal, wenn der Manager gestartet wird.</string>
     <string name="kpm_control_dialog_content">Eingabekontrollparameter:</string>
     <string name="mode_select_page_install_inactive_slot_warning">Dein Gerät wird **GEZWUNGEN**, nach dem Neustart den inaktiven Slot zu nutzen!
@@ -202,7 +202,7 @@
     <string name="red_theme">Rot</string>
     <string name="about_app_desc">Kernel-Root-Lösung mit nur einem gestrippten Kernel-Image, das die Möglichkeit bietet, Systemmodule zu mounten und Kernel-Funktionen einzuhängen.</string>
     <string name="settings_use_system_color_theme_summary">Verwende ein Farbthema, das basierend aus dem aktuellen Hintergrund vom System erzeugt wird</string>
-    <string name="home_dialog_auth_fail_content">Superschlüssel kann nicht authentifiziert werden, daher kann APatch nicht richtig funktionieren. \nMögliche Gründe für Authentifizierungsfehler können sein: \n1. Das boot.img wurde nicht mit dem KernelPatch gepatcht. \n2. Das gepatchte boot.img wurde nicht geflasht. \n3. Superschlüssel ist falsch, oder enthält Sonderzeichen. \n4. Ihr Gerät unterstützt APatch und KernelPatch nicht. \n \nBitte überprüfen und nochmal versuchen. Wenn weiterhin Probleme auftreten, können Fragen auf der offiziellen Issues-Seite des Repository gestellt werden.</string>
+    <string name="home_dialog_auth_fail_content">Superschlüssel kann nicht authentifiziert werden, daher kann yapatch nicht richtig funktionieren. \nMögliche Gründe für Authentifizierungsfehler können sein: \n1. Das boot.img wurde nicht mit dem KernelPatch gepatcht. \n2. Das gepatchte boot.img wurde nicht geflasht. \n3. Superschlüssel ist falsch, oder enthält Sonderzeichen. \n4. Ihr Gerät unterstützt yapatch und KernelPatch nicht. \n \nBitte überprüfen und nochmal versuchen. Wenn weiterhin Probleme auftreten, können Fragen auf der offiziellen Issues-Seite des Repository gestellt werden.</string>
     <string name="save_log">Logs speichern</string>
     <string name="apm_action">Aktion</string>
     <string name="log_saved">Protokoll gespeichert</string>

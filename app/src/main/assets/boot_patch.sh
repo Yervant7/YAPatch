@@ -1,6 +1,6 @@
 #!/system/bin/sh
 #######################################################################################
-# APatch Boot Image Patcher
+# YAPatch Boot Image Patcher
 #######################################################################################
 #
 # Usage: boot_patch.sh <superkey> <bootimage> [ARGS_PASS_TO_KPTOOLS]
@@ -9,7 +9,7 @@
 #
 # File name          Type          Description
 #
-# boot_patch.sh      script        A script to patch boot image for APatch.
+# boot_patch.sh      script        A script to patch boot image for YAPatch.
 #                  (this file)      The script will use files in its same
 #                                  directory to complete the patching process.
 # bootimg            binary        The target boot image
@@ -25,7 +25,7 @@ ARCH=$(getprop ro.product.cpu.abi)
 . ./util_functions.sh
 
 echo "****************************"
-echo " APatch Boot Image Patcher"
+echo " YAPatch Boot Image Patcher"
 echo "****************************"
 
 SUPERKEY="$1"
@@ -51,7 +51,7 @@ fi
 
 if [ ! $(./kptools -i kernel -f | grep CONFIG_KALLSYMS=y) ]; then
 	echo "- Patcher has Aborted!"
-	echo "- APatch requires CONFIG_KALLSYMS to be Enabled."
+	echo "- YAPatch requires CONFIG_KALLSYMS to be Enabled."
 	echo "- But your kernel seems NOT enabled it."
 	exit 0
 fi
@@ -80,7 +80,7 @@ echo "- Repacking boot image"
 
 if [ ! $(./kptools -i kernel.ori -f | grep CONFIG_KALLSYMS_ALL=y) ]; then
 	echo "- Detected CONFIG_KALLSYMS_ALL is not set!"
-	echo "- APatch has patched but maybe your device won't boot."
+	echo "- YAPatch has patched but maybe your device won't boot."
 	echo "- Make sure you have original boot image backup."
 fi
 

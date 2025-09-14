@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="reboot">Ponovno pokreni</string>
     <string name="home">Početna</string>
     <string name="patch">Patch</string>
@@ -10,8 +10,8 @@
     <string name="reboot_download">Pokreni u Download</string>
     <string name="reboot_edl">Pokreni u EDL</string>
     <string name="settings_app_language">Jezik</string>
-    <string name="home_learn_apatch">Nauči o APatch-u</string>
-    <string name="home_click_to_learn_apatch">Nauči više o značajkama APatch i kako ih koristiti</string>
+    <string name="home_learn_yapatch">Nauči o yapatch-u</string>
+    <string name="home_click_to_learn_yapatch">Nauči više o značajkama yapatch i kako ih koristiti</string>
     <string name="about_source_code">Pogledaj izvorni kod na %1$s<br/>Pridruži se na našem %2$s kanalu</string>
     <string name="send_log">Pošalji logove</string>
     <string name="safe_mode">Sigurni način</string>
@@ -26,9 +26,9 @@
     <string name="home_installing">Instaliranje</string>
     <string name="home_need_update">Nova inačica dostupna</string>
     <string name="kpatch_version">Verzija: %s</string>
-    <string name="apatch_version">Inačica:
+    <string name="yapatch_version">Inačica:
 \n%s</string>
-    <string name="apatch_version_update">Inačica:
+    <string name="yapatch_version_update">Inačica:
 \n%s -&gt; %s</string>
     <string name="home_su_path">su: %s</string>
     <string name="home_auth_key_desc">Pokreni nakon certificiranja</string>
@@ -57,7 +57,7 @@
     <string name="kpm_desc">Opis</string>
     <string name="kpm_args">Argumenti</string>
     <string name="su_title">Superuser</string>
-    <string name="su_pkg_excluded_setting_summary">Uključivanjem ove opcije dozvoljavate APatch-u da vrati bilo koje datoteke modificirane modulima ove aplikacije.</string>
+    <string name="su_pkg_excluded_setting_summary">Uključivanjem ove opcije dozvoljavate yapatch-u da vrati bilo koje datoteke modificirane modulima ove aplikacije.</string>
     <string name="su_show_system_apps">Prikaži sistemske aplikacije</string>
     <string name="su_hide_system_apps">Sakrij sistemske aplikacije</string>
     <string name="su_refresh">Osvježi</string>
@@ -74,7 +74,7 @@
     <string name="su_pkg_excluded_setting_title">Isključi modifikacije</string>
     <string name="patch_warnning">Instalacija može biti riskantna. Sačuvaj osobne podatke.</string>
     <string name="kpm_load">Učitaj</string>
-    <string name="home_apatch_version">Apatch: %s</string>
+    <string name="home_yapatch_version">yapatch: %s</string>
     <string name="home_auth_key_title">Unesi SuperKey</string>
     <string name="home_selinux_status_enforcing">Enforcing</string>
     <string name="home_selinux_status_unknown">Nepoznato</string>
@@ -115,7 +115,7 @@
     <string name="save_log">Spremi logove</string>
     <string name="patch_item_extra_kpm_desciption">Opis:</string>
     <string name="patch_item_extra_event">Događaj:</string>
-    <string name="home_new_apatch_found">Nova verzija %s je dostupna, klikni za nadogradnju.</string>
+    <string name="home_new_yapatch_found">Nova verzija %s je dostupna, klikni za nadogradnju.</string>
     <string name="settings_check_update_summary">Automatski provjeri za nadogradnje prilikom otvaranja aplikacije</string>
     <string name="kpatch_version_update">Verzija: %s -&gt; %s</string>
     <string name="home_ap_cando_reboot">Restartiraj</string>
@@ -130,8 +130,8 @@
     <string name="home_system_version">Verzija sustava</string>
     <string name="kpm_install">Instaliraj</string>
     <string name="kpm_control">Kontrola</string>
-    <string name="hide_apatch_manager">Sakrij APatch Manager</string>
-    <string name="hide_apatch_manager_failure">Nije moguće sakriti. Molimo prijavite grešku!</string>
+    <string name="hide_yapatch_manager">Sakrij yapatch Manager</string>
+    <string name="hide_yapatch_manager_failure">Nije moguće sakriti. Molimo prijavite grešku!</string>
     <string name="log_saved">Logovi spremljeni</string>
     <string name="mode_select_page_title">Instaliraj</string>
     <string name="apm_webui_open">Otvori</string>
@@ -147,10 +147,10 @@
     <string name="patch_item_kernel">Jezgra</string>
     <string name="settings_donot_store_superkey_summary">Autentificiraj SuperKey pri svakom pokretanju upravitelja</string>
     <string name="settings_donot_store_superkey">Nemoj spremati SuperKey u local</string>
-    <string name="hide_apatch_dialog_new_manager_name">Novo ime upravitelja</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Novo ime upravitelja</string>
     <string name="settings_night_mode_follow_sys_summary">Automatski prebaci na tamni prikaz ovisno o postavkama sistema</string>
     <string name="patch_item_skey">SuperKey</string>
-    <string name="home_dialog_auth_fail_content">Nije moguće autentificirati SuperKey, stoga APatch ne može pravilno funkcionirati.\nOvo su neki od mogućih uzroka neuspjeha autentifikacije:\n1.</string>
+    <string name="home_dialog_auth_fail_content">Nije moguće autentificirati SuperKey, stoga yapatch ne može pravilno funkcionirati.\nOvo su neki od mogućih uzroka neuspjeha autentifikacije:\n1.</string>
     <string name="home_more_menu_feedback_or_suggestion">Povratne informacije ili prijedlozi</string>
     <string name="settings_night_theme_enabled">Uključi tamni prikaz</string>
     <string name="settings_custom_color_theme">Boje prikaza</string>
@@ -168,8 +168,8 @@
     <string name="patch_start_unpatch_btn">Makni patch</string>
     <string name="patch_item_bootimg">Slika za pokretanje</string>
     <string name="kpm_add_kpm">Dodaj KPM</string>
-    <string name="hide_apatch_manager_summary">Instaliraj novu aplikaciju upravitelja s nasumičnim ID-jem i prilagođenom oznakom</string>
-    <string name="hide_apatch_dialog_summary">Biti će korišteno za novu oznaku aplikacije prikazane u pokretaču</string>
+    <string name="hide_yapatch_manager_summary">Instaliraj novu aplikaciju upravitelja s nasumičnim ID-jem i prilagođenom oznakom</string>
+    <string name="hide_yapatch_dialog_summary">Biti će korišteno za novu oznaku aplikacije prikazane u pokretaču</string>
     <string name="setting_reset_su_path">Resetiraj su put</string>
     <string name="setting_reset_su_new_path">Novi puni put</string>
     <string name="enable_web_debugging">Uključi WebView debugganje</string>

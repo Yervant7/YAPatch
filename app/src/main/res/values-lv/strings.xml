@@ -16,7 +16,7 @@
     <string name="home_not_installed">Nav uzstādīts</string>
     <string name="home_need_update">Pieejama jauna versija</string>
     <string name="kpatch_version">Versija: %s</string>
-    <string name="apatch_version">Versija: %s</string>
+    <string name="yapatch_version">Versija: %s</string>
     <string name="home_ap_cando_install">Uzstādīt</string>
     <string name="home_ap_cando_update">Atjaunināt</string>
     <string name="home_ap_cando_uninstall">Noņemt</string>
@@ -61,7 +61,7 @@
     <string name="patch_item_extra_author">Izstrādātājs:</string>
     <string name="home_selinux_status">SELinux statuss</string>
     <string name="home_selinux_status_disabled">Atspējots</string>
-    <string name="home_apatch_version">APatch versija</string>
+    <string name="home_yapatch_version">yapatch versija</string>
     <string name="kpm_load">Ielādēt</string>
     <string name="kpm_load_toast_succ">Veiksmīgi ielādēts</string>
     <string name="kpm_load_toast_failed">Neizdevās ielādēt</string>

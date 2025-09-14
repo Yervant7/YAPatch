@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="home">මුල් පිටුව</string>
     <string name="reboot">Restart කරන්න</string>
-    <string name="about">APatch පිළිබඳ</string>
+    <string name="about">yapatch පිළිබඳ</string>
     <string name="super_key">මුරපදය</string>
     <string name="patch_set_superkey">නව මුර පදයක් සෑදීම</string>
     <string name="home_patch_set_key_desc">ඔබගේ මුරපදය ඇතුළත් කරන්න</string>
@@ -24,8 +24,8 @@
     <string name="apm_failed_to_disable">මෙම මොඩියුලය ක්‍රියාවිරහිත කිරීමට නොහැකි විය: %s</string>
     <string name="apm_reboot_to_apply">Apply කිරීම සඳහා reboot කිරීම අනිවාර්ය වේ</string>
     <string name="apm_new_version_available">නව අනුවාදය ස්ථාපනයට ඔබන්න, %s.</string>
-    <string name="home_learn_apatch">AndroidPatch ගැන ඉගෙන ගන්න</string>
-    <string name="home_click_to_learn_apatch">මෙතන Click කරන්න</string>
+    <string name="home_learn_yapatch">AndroidPatch ගැන ඉගෙන ගන්න</string>
+    <string name="home_click_to_learn_yapatch">මෙතන Click කරන්න</string>
     <string name="patch_warnning">Install කරද්දි මොකක්ම හරි අවුලක් ආවොත් ඔයාගේ Data lost වේවි. ඒක නිසා වැදගත් දේවල් Backup කරගෙනම ඉන්න.</string>
     <string name="send_log">Log යවන්න</string>
     <string name="clear_super_key">මුරපදය මකා දමන්න</string>
@@ -52,7 +52,7 @@
     <string name="reboot_bootloader">Fastboot mode එකට</string>
     <string name="reboot_download">Download mode එකට</string>
     <string name="kpatch_version">අනුවාදය: %s</string>
-    <string name="apatch_version_update">අනුවාදය: %s -&gt; %s</string>
+    <string name="yapatch_version_update">අනුවාදය: %s -&gt; %s</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="home_su_path">රූට්:%s</string>
     <string name="home_ap_cando_update">යාවත්කාලීන කරන්න</string>
@@ -68,7 +68,7 @@
     <string name="kpm_desc">අවරෝහණ</string>
     <string name="su_title">රූට්</string>
     <string name="su_pkg_excluded_setting_summary">මොඩියුල්ස් සඳහා</string>
-    <string name="home_apatch_version">APatch අනුවාදය</string>
+    <string name="home_yapatch_version">yapatch අනුවාදය</string>
     <string name="home_kernel">කර්නල් එක</string>
     <string name="home_manager_version">කළමනාකරණයේ අනුවාදය</string>
     <string name="home_fingerprint">ආරක්ෂක සළකුණ</string>
@@ -82,7 +82,7 @@
     <string name="apm_start_downloading">බාගත කිරීම ආරම්භ කළා %s</string>
     <string name="settings_app_language">භාෂාව</string>
     <string name="kpm_version">අනුවාදය</string>
-    <string name="apatch_version">අනුවාදය: %s</string>
+    <string name="yapatch_version">අනුවාදය: %s</string>
     <string name="patch_title">පැච් කරන්න</string>
     <string name="apm_author">කතෲ</string>
     <string name="patch">පැච් කරන්න</string>
@@ -94,7 +94,7 @@
     <string name="patch_item_kernel">කර්නලය</string>
     <string name="patch_item_extra_kpm_license">බලපත්‍රය:</string>
     <string name="su_pkg_excluded_setting_title">වෙනස් කිරීම් අතෑරලා දාන්න</string>
-    <string name="home_dialog_auth_fail_content">Super Key එක සත්‍යාපනය කරන්න බෑ, ඒ හින්දා APatch හරියට වැඩ කරන්නේ නෑ.\nසත්‍යාපනය අවුල් වෙන්න හේතු ටිකක් මෙන්න:\n1. ඔයා boot image එක KernelPatch එක්ක පැච් කර නැ.\n2. පැච් කරපු boot image එක flash වෙලා නෑ.\n3. Super key එක වැරදි.\n4. ඔබගේ උපාංගය APatch සහ KernelPatch වලට හරියන්නේ නෑ වගේ .\n\nතව පාරක් ට්‍රයි කරලා බලන්න. තවමත් ඒත් හරියන්නේ නැත්තං , ඔයාට හැම වෙලේම නිල ගැටළු ඇසීමේ පිටුවෙන් ප්‍රශ්න ඇසීමට හැකිය.</string>
+    <string name="home_dialog_auth_fail_content">Super Key එක සත්‍යාපනය කරන්න බෑ, ඒ හින්දා yapatch හරියට වැඩ කරන්නේ නෑ.\nසත්‍යාපනය අවුල් වෙන්න හේතු ටිකක් මෙන්න:\n1. ඔයා boot image එක KernelPatch එක්ක පැච් කර නැ.\n2. පැච් කරපු boot image එක flash වෙලා නෑ.\n3. Super key එක වැරදි.\n4. ඔබගේ උපාංගය yapatch සහ KernelPatch වලට හරියන්නේ නෑ වගේ .\n\nතව පාරක් ට්‍රයි කරලා බලන්න. තවමත් ඒත් හරියන්නේ නැත්තං , ඔයාට හැම වෙලේම නිල ගැටළු ඇසීමේ පිටුවෙන් ප්‍රශ්න ඇසීමට හැකිය.</string>
     <string name="indigo_theme">ඉන්ඩිගෝ Theme</string>
     <string name="light_blue_theme">ලා නිල් Theme</string>
     <string name="patch_item_bootimg_dev">උපාංගය:</string>
@@ -157,13 +157,13 @@
     <string name="kpm_add_kpm">KPM ඒකතුකරන්න</string>
     <string name="kpm_install">දාන්න</string>
     <string name="su_pkg_excluded_label">exclude</string>
-    <string name="hide_apatch_manager_summary">අහඹු පැකේජ ID සහ කස්නටම් app ලෙබලයක් සමග අලුත් මැනේජර් app එක්ක දාන්න</string>
-    <string name="hide_apatch_dialog_new_manager_name">අලුත් මැනේජර් ගේ නම</string>
-    <string name="hide_apatch_dialog_summary">මෙය භාවිතා කරන නව යෙදුම් ලේබලය ලෙස භාවිතා කරනු ඇත</string>
-    <string name="hide_apatch_manager_failure">හංගන්න බෑ වගේනේ, කරුණාකර අවුල වාර්තා කරන්න!</string>
+    <string name="hide_yapatch_manager_summary">අහඹු පැකේජ ID සහ කස්නටම් app ලෙබලයක් සමග අලුත් මැනේජර් app එක්ක දාන්න</string>
+    <string name="hide_yapatch_dialog_new_manager_name">අලුත් මැනේජර් ගේ නම</string>
+    <string name="hide_yapatch_dialog_summary">මෙය භාවිතා කරන නව යෙදුම් ලේබලය ලෙස භාවිතා කරනු ඇත</string>
+    <string name="hide_yapatch_manager_failure">හංගන්න බෑ වගේනේ, කරුණාකර අවුල වාර්තා කරන්න!</string>
     <string name="setting_reset_su_path">Su patch රීසෙට් කරන්න</string>
     <string name="settings_donot_store_superkey">Super Key එක phone එකේ කොහේවත් තියාගන්න එපා</string>
-    <string name="home_new_apatch_found">නව අනුවාදයක් තිබේ: %s, උත්ශ්‍රේණියට ඔබන්න</string>
+    <string name="home_new_yapatch_found">නව අනුවාදයක් තිබේ: %s, උත්ශ්‍රේණියට ඔබන්න</string>
     <string name="home_dialog_auth_fail_title">සත්‍යාපනය වැරදි වගේ</string>
     <string name="kpm_control_dialog_content">ඉන්පුට් control parameters:</string>
     <string name="kpm_control_ok">වැඩේ ගොඩ ලොක්කා!</string>
@@ -193,7 +193,7 @@
     <string name="settings_night_theme_enabled">Dark theme එකදාමු</string>
     <string name="deep_purple_theme">Deep Purple Theme</string>
     <string name="green_theme">කොළ Theme</string>
-    <string name="hide_apatch_manager">APatch මැනේජර් හංගන්න</string>
+    <string name="hide_yapatch_manager">yapatch මැනේජර් හංගන්න</string>
     <string name="enable_web_debugging">WebView නිදොස්කරණය දාන්න</string>
     <string name="apm_webui_open">බලමු</string>
     <string name="enable_web_debugging_summary">WebUI නිදොස් කිරීමට භාවිතා කළ හැක, කරුණාකර අවශ්‍ය විට විතරක් දාගන්න.</string>

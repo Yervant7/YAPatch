@@ -1,1 +1,0 @@
-The patching of Android kernel and Android system

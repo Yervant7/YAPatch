@@ -14,7 +14,7 @@
     <string name="settings_app_language">Språk</string>
     <string name="system_default">Systemstandard</string>
     <string name="settings_check_update">Sök efter uppdatering</string>
-    <string name="home_learn_apatch">Lär dig APatch</string>
+    <string name="home_learn_yapatch">Lär dig yapatch</string>
     <string name="reboot_edl">Starta om till EDL</string>
     <string name="settings_clear_super_key_dialog">Vill du verkligen fortsätta?</string>
     <string name="settings_check_update_summary">Sök automatiskt efter uppdateringar när appen öppnas</string>
@@ -31,9 +31,9 @@
     <string name="home_click_to_install">Klicka för att installera</string>
     <string name="home_install_unknown">Inte installerad eller autentiserad</string>
     <string name="kpatch_version">Version: %s</string>
-    <string name="apatch_version">Version: %s</string>
+    <string name="yapatch_version">Version: %s</string>
     <string name="home_need_update">Ny version tillgänglig</string>
-    <string name="apatch_version_update">Version: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Version: %s -&gt; %s</string>
     <string name="kpatch_version_update">Version: %s -&gt; %s</string>
     <string name="home_auth_key_title">Ange SuperKey</string>
     <string name="home_kpatch_info_title">Info</string>
@@ -73,7 +73,7 @@
     <string name="kpm">KP-modul</string>
     <string name="kpm_load">Ladda</string>
     <string name="home_system_version">Version på systemet</string>
-    <string name="home_apatch_version">Version på APatch</string>
+    <string name="home_yapatch_version">Version på yapatch</string>
     <string name="kpm_add_kpm">Lägg till KPM</string>
     <string name="kpm_install">Installera</string>
     <string name="kpm_load_toast_failed">Laddningen misslyckades</string>
@@ -90,7 +90,7 @@
     <string name="su_pkg_excluded_setting_title">Exkludera modifieringar</string>
     <string name="su_show_system_apps">Visa system-appar</string>
     <string name="su_hide_system_apps">Dölj system-appar</string>
-    <string name="su_pkg_excluded_setting_summary">Att aktivera det här alternativet kommer att tillåta APatch att återställa alla modifierade filer den här applikationens moduler.</string>
+    <string name="su_pkg_excluded_setting_summary">Att aktivera det här alternativet kommer att tillåta yapatch att återställa alla modifierade filer den här applikationens moduler.</string>
     <string name="su_refresh">Uppdatera</string>
     <string name="apm">AP-modul</string>
     <string name="apm_remove">Ta bort</string>
@@ -114,8 +114,8 @@
     <string name="apm_webui_open">Öppna</string>
     <string name="setting_reset_su_path">Återställ genväg för su</string>
     <string name="setting_reset_su_new_path">ny fullständig genväg</string>
-    <string name="hide_apatch_manager_failure">Döljningen misslyckades, vänligen rapportera buggen!</string>
-    <string name="hide_apatch_dialog_summary">Det kommer att användas som en ny app-etikett som visas i startprogrammet</string>
+    <string name="hide_yapatch_manager_failure">Döljningen misslyckades, vänligen rapportera buggen!</string>
+    <string name="hide_yapatch_dialog_summary">Det kommer att användas som en ny app-etikett som visas i startprogrammet</string>
     <string name="enable_web_debugging">Aktivera felsökning för WebView</string>
     <string name="mode_select_page_patch_and_install">Patcha och installera</string>
     <string name="home_dialog_auth_fail_title">Autentiseringen misslyckades</string>
@@ -133,7 +133,7 @@
     <string name="about_powered_by">Drivs av %1$s</string>
     <string name="apm_action">Åtgärd</string>
     <string name="mode_select_page_title">Installera</string>
-    <string name="home_new_apatch_found">Ny version tillgänglig: %s, Klicka på mig för att uppgradera</string>
+    <string name="home_new_yapatch_found">Ny version tillgänglig: %s, Klicka på mig för att uppgradera</string>
     <string name="home_dialog_uninstall_title">Avinstallera</string>
     <string name="kpm_control_paramters">Parametrar</string>
     <string name="kpm_control_outMsg">Meddelande</string>
@@ -142,7 +142,7 @@
     <string name="kpm_control_dialog_title">Kontrollera KP-modulen</string>
     <string name="kpm_control_dialog_content">Mata in kontroll-parametrar:</string>
     <string name="mode_select_page_install_inactive_slot">Installera till en icke aktiv plats (Efter OTA)</string>
-    <string name="home_dialog_auth_fail_content">Autentiseringen av super-tangenten kunde inte genomföras, därav kommer inte APatch att fungera korrekt.\nHär är några möjliga orsaker till varför autentiseringen misslyckades:\n1. Du har inte patchat avbilden för boot med KernelPatch.\n2. Den patchade avbilden för boot har inte flashats.\n3. Fel Super-tangent.\n4. Din enhet har inte stöd för APatch och KernelPatch.\n\nVänligen kontrollera och försök igen. Om det fortfarande skulle uppstå problem så kan du alltid ställa frågor på sidan för filförrådets sida för problem-rapportering.</string>
+    <string name="home_dialog_auth_fail_content">Autentiseringen av super-tangenten kunde inte genomföras, därav kommer inte yapatch att fungera korrekt.\nHär är några möjliga orsaker till varför autentiseringen misslyckades:\n1. Du har inte patchat avbilden för boot med KernelPatch.\n2. Den patchade avbilden för boot har inte flashats.\n3. Fel Super-tangent.\n4. Din enhet har inte stöd för yapatch och KernelPatch.\n\nVänligen kontrollera och försök igen. Om det fortfarande skulle uppstå problem så kan du alltid ställa frågor på sidan för filförrådets sida för problem-rapportering.</string>
     <string name="settings_custom_color_theme">Färgtema</string>
     <string name="settings_use_system_color_theme_summary">Använd ett färgschema som genereras av systemet med den nuvarande bakgrundsbilden</string>
     <string name="brown_theme">Brunt tema</string>
@@ -150,7 +150,7 @@
     <string name="yellow_theme">Gult tema</string>
     <string name="light_green_theme">Ljusgrönt tema</string>
     <string name="about_telegram_channel">Kanal på Telegram</string>
-    <string name="home_click_to_learn_apatch">Lär dig om funktionerna i APatch och hur du använder</string>
+    <string name="home_click_to_learn_yapatch">Lär dig om funktionerna i yapatch och hur du använder</string>
     <string name="kpatch_shadow_path_title">kpatch</string>
     <string name="patch_start_patch_btn">Starta</string>
     <string name="patch_mode_bootimg_patch">Läge: Patchning</string>

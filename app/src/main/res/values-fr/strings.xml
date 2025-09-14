@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="kernel_patch">KernelPatch</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="reboot_recovery">Redémarrer en mode récupération</string>
     <string name="reboot_download">Redémarrer en mode téléchargement</string>
     <string name="reboot_edl">Redémarrer en mode EDL</string>
     <string name="about">À propos</string>
-    <string name="home_learn_apatch">En apprendre plus sur AndroidPatch</string>
+    <string name="home_learn_yapatch">En apprendre plus sur AndroidPatch</string>
     <string name="home">Accueil</string>
     <string name="patch_warnning">L\'installation comporte des risques. Veillez à ce que vos données soient sauvegardées.</string>
     <string name="settings">Paramètres</string>
     <string name="reboot_bootloader">Redémarrage en mode bootloader</string>
     <string name="reboot">Redémarrer</string>
-    <string name="home_click_to_learn_apatch">Découvrez les fonctionnalités d\'AndroidPatch et apprenez comment l\'utiliser</string>
+    <string name="home_click_to_learn_yapatch">Découvrez les fonctionnalités d\'AndroidPatch et apprenez comment l\'utiliser</string>
     <string name="safe_mode">Mode sécurisé</string>
     <string name="home_not_installed">Non installé</string>
     <string name="home_click_to_install">Appuyer pour installer</string>
     <string name="home_installing">Installation</string>
     <string name="home_need_update">Nouvelle version disponible</string>
-    <string name="apatch_version">Version : %s</string>
+    <string name="yapatch_version">Version : %s</string>
     <string name="home_patch_next_step">Suivant</string>
     <string name="home_install_unknown">Non installé ou authentifié</string>
     <string name="kpatch_version">Version : %s</string>
     <string name="clear_super_key">Effacer la clé</string>
     <string name="home_su_path">Exécutable su</string>
-    <string name="home_apatch_version">Version d\'APatch</string>
-    <string name="apatch_version_update">Version : %s -&gt; %s</string>
+    <string name="home_yapatch_version">Version d\'yapatch</string>
+    <string name="yapatch_version_update">Version : %s -&gt; %s</string>
     <string name="about_source_code"><![CDATA[<p>Voir le code source sur %1$s<p/>Rejoindre notre canal %2$s<p/>Rejoindre notre groupe %3$s]]></string>
     <string name="patch_set_superkey">Initialiser la clé</string>
     <string name="send_log">Envoyer le log</string>
@@ -85,7 +85,7 @@
     <string name="kpm_apm_empty">Aucun module chargé</string>
     <string name="apm_failed_to_enable">Impossible d\'activer le module \"%s\"</string>
     <string name="kpm_args">Arguments</string>
-    <string name="su_pkg_excluded_setting_summary">L\'activation de cette option permettra à APatch de restaurer tous les fichiers modifiés par les modules de cette application.</string>
+    <string name="su_pkg_excluded_setting_summary">L\'activation de cette option permettra à yapatch de restaurer tous les fichiers modifiés par les modules de cette application.</string>
     <string name="apm_remove">Désinstaller</string>
     <string name="su_pkg_excluded_setting_title">Exclure les modifications</string>
     <string name="apm_overlay_fs_not_available">Les modules sont indisponibles car OverlayFS est désactivé par le noyau !</string>
@@ -101,10 +101,10 @@
     <string name="patch_config_title">Patchs</string>
     <string name="patch_item_kernel">Noyau</string>
     <string name="patch_item_set_skey_label">La longueur de la clé doit être d\'au moins 8 caractères et inclure à la fois des numéros et des lettres, mais pas de caractères spéciaux.</string>
-    <string name="hide_apatch_dialog_new_manager_name">Nouveau nom du gestionnaire</string>
-    <string name="hide_apatch_dialog_summary">Il sera utilisé comme label de la nouvelle application affichée dans le lanceur d\'applications</string>
-    <string name="hide_apatch_manager_summary">Installer un proxy avec un identifiant de paquet aléatoire et un label d\'application personnalisé</string>
-    <string name="hide_apatch_manager_failure">Échec de la dissimulation, merci de signaler le bug !</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Nouveau nom du gestionnaire</string>
+    <string name="hide_yapatch_dialog_summary">Il sera utilisé comme label de la nouvelle application affichée dans le lanceur d\'applications</string>
+    <string name="hide_yapatch_manager_summary">Installer un proxy avec un identifiant de paquet aléatoire et un label d\'application personnalisé</string>
+    <string name="hide_yapatch_manager_failure">Échec de la dissimulation, merci de signaler le bug !</string>
     <string name="patch_embed_kpm_btn">Intégrer un KPM</string>
     <string name="patch_start_patch_btn">Démarrer</string>
     <string name="success">Succès</string>
@@ -135,7 +135,7 @@
     <string name="patch_mode_uninstall_patch">Mode : Dépatch</string>
     <string name="patch_item_extra_version">Version :</string>
     <string name="patch_item_extra_args">Args :</string>
-    <string name="hide_apatch_manager">Masquer le gestionnaire APatch</string>
+    <string name="hide_yapatch_manager">Masquer le gestionnaire yapatch</string>
     <string name="setting_reset_su_new_path">nouveau chemin complet</string>
     <string name="patch_item_existed_extra_kpm">Existait</string>
     <string name="settings_donot_store_superkey_summary">Authentifier la clé à chaque démarrage du gestionnaire</string>
@@ -149,7 +149,7 @@
     <string name="home_system_version">Version du système</string>
     <string name="home_kpatch_version">Version de KernelPatch</string>
     <string name="enable_web_debugging_summary">Peut être utilisé pour déboguer l\'interface web, n\'activer cette option qu\'en cas de besoin.</string>
-    <string name="home_new_apatch_found">Nouvelle version disponible : %s, Cliquer pour mettre à jour.</string>
+    <string name="home_new_yapatch_found">Nouvelle version disponible : %s, Cliquer pour mettre à jour.</string>
     <string name="home_dialog_auth_fail_title">Echec de l\'authentification</string>
     <string name="home_dialog_uninstall_title">Désinstaller</string>
     <string name="home_dialog_uninstall_ap_only">Supprimer AndroidPatch</string>
@@ -162,7 +162,7 @@
     <string name="mode_select_page_install_inactive_slot_warning">Votre appareil sera **FORCÉ** de démarrer sur le slot inactif actuel après un redémarrage !
 \nN\'utilisez cette option qu\'une fois l\'OTA terminée.
 \nContinuer ?</string>
-    <string name="home_dialog_auth_fail_content">Impossible d\'authentifier la clé, par conséquent APatch ne peut pas fonctionner correctement. \nVoici quelques raisons possibles de l\'échec de l\'authentification : \n1. Vous n\'avez pas patché l\'image de démarrage avec KernelPatch. \n2. L\'image de démarrage patchée n\'a pas été flashée. \n3. La clé est erronée. \n4. Votre appareil ne prend pas en charge APatch et KernelPatch. \n \nVeuillez vérifier et réessayer. Si des problèmes persistent, vous pouvez toujours poser vos questions sur le dépôt officiel.</string>
+    <string name="home_dialog_auth_fail_content">Impossible d\'authentifier la clé, par conséquent yapatch ne peut pas fonctionner correctement. \nVoici quelques raisons possibles de l\'échec de l\'authentification : \n1. Vous n\'avez pas patché l\'image de démarrage avec KernelPatch. \n2. L\'image de démarrage patchée n\'a pas été flashée. \n3. La clé est erronée. \n4. Votre appareil ne prend pas en charge yapatch et KernelPatch. \n \nVeuillez vérifier et réessayer. Si des problèmes persistent, vous pouvez toujours poser vos questions sur le dépôt officiel.</string>
     <string name="settings_donot_store_superkey">Ne pas stocker la clé localement</string>
     <string name="apm_webui_open">Ouvrir l\'interface web</string>
     <string name="enable_web_debugging">Activer le débogage WebView</string>

@@ -10,7 +10,6 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.lsplugin.apksign)
     alias(libs.plugins.lsplugin.resopt)
     alias(libs.plugins.lsplugin.cmaker)
     id("kotlin-parcelize")
@@ -20,15 +19,8 @@ val managerVersionCode: Int by rootProject.extra
 val managerVersionName: String by rootProject.extra
 val kernelPatchVersion: String by rootProject.extra
 
-apksign {
-    storeFileProperty = "KEYSTORE_FILE"
-    storePasswordProperty = "KEYSTORE_PASSWORD"
-    keyAliasProperty = "KEY_ALIAS"
-    keyPasswordProperty = "KEY_PASSWORD"
-}
-
 android {
-    namespace = "me.bmax.apatch"
+    namespace = "me.yervant.yapatch"
 
     buildTypes {
         debug {
@@ -39,6 +31,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
         release {
             isMinifyEnabled = true
@@ -50,7 +43,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
+    }
+
+    lint {
+        disable += "MissingTranslation"
     }
 
     dependenciesInfo.includeInApk = false
@@ -105,11 +103,6 @@ android {
     sourceSets["main"].jniLibs.srcDir("libs")
 
     applicationVariants.all {
-        outputs.forEach {
-            val output = it as BaseVariantOutputImpl
-            output.outputFileName = "APatch_${managerVersionName}_${managerVersionCode}-$name.apk"
-        }
-
         kotlin.sourceSets {
             getByName(name) {
                 kotlin.srcDir("build/generated/ksp/$name/kotlin")
@@ -152,24 +145,15 @@ fun downloadFile(url: String, destFile: File) {
 
 registerDownloadTask(
     taskName = "downloadKpimg",
-    srcUrl = "https://github.com/bmax121/KernelPatch/releases/download/$kernelPatchVersion/kpimg-android",
+    srcUrl = "https://github.com/Yervant7/YPatch/releases/download/$kernelPatchVersion/kpimg-android",
     destPath = "${project.projectDir}/src/main/assets/kpimg",
     project = project
 )
 
 registerDownloadTask(
     taskName = "downloadKptools",
-    srcUrl = "https://github.com/bmax121/KernelPatch/releases/download/$kernelPatchVersion/kptools-android",
+    srcUrl = "https://github.com/Yervant7/YPatch/releases/download/$kernelPatchVersion/kptools-android",
     destPath = "${project.projectDir}/libs/arm64-v8a/libkptools.so",
-    project = project
-)
-
-// Compat kp version less than 0.10.7
-// TODO: Remove in future
-registerDownloadTask(
-    taskName = "downloadCompatKpatch",
-    srcUrl = "https://github.com/bmax121/KernelPatch/releases/download/0.10.7/kpatch-android",
-    destPath = "${project.projectDir}/libs/arm64-v8a/libkpatch.so",
     project = project
 )
 
@@ -186,7 +170,6 @@ tasks.register<Copy>("mergeScripts") {
 tasks.getByName("preBuild").dependsOn(
     "downloadKpimg",
     "downloadKptools",
-    "downloadCompatKpatch",
     "mergeScripts",
 )
 
@@ -232,6 +215,7 @@ ksp {
 
 dependencies {
     implementation(libs.androidx.appcompat)
+    implementation(libs.google.material)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.webkit)

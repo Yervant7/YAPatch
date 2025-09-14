@@ -273,16 +273,16 @@ pub fn on_post_data_fs(superkey: Option<String>) -> Result<()> {
     }
 
     // Create log environment
-    if !Path::new(defs::APATCH_LOG_FOLDER).exists() {
-        fs::create_dir(defs::APATCH_LOG_FOLDER).expect("Failed to create log folder");
+    if !Path::new(defs::YAPatch_LOG_FOLDER).exists() {
+        fs::create_dir(defs::YAPatch_LOG_FOLDER).expect("Failed to create log folder");
         let permissions = fs::Permissions::from_mode(0o700);
-        fs::set_permissions(defs::APATCH_LOG_FOLDER, permissions)
+        fs::set_permissions(defs::YAPatch_LOG_FOLDER, permissions)
             .expect("Failed to set permissions");
     }
     let command_string = format!(
         "rm -rf {}*.old.log; for file in {}*; do mv \"$file\" \"$file.old.log\"; done",
-        defs::APATCH_LOG_FOLDER,
-        defs::APATCH_LOG_FOLDER
+        defs::YAPatch_LOG_FOLDER,
+        defs::YAPatch_LOG_FOLDER
     );
     let mut args = vec!["-c", &command_string];
     // for all file to .old
@@ -292,8 +292,8 @@ pub fn on_post_data_fs(superkey: Option<String>) -> Result<()> {
     } else {
         info!("Failed to delete .old files.");
     }
-    let logcat_path = format!("{}locat.log", defs::APATCH_LOG_FOLDER);
-    let dmesg_path = format!("{}dmesg.log", defs::APATCH_LOG_FOLDER);
+    let logcat_path = format!("{}locat.log", defs::YAPatch_LOG_FOLDER);
+    let dmesg_path = format!("{}dmesg.log", defs::YAPatch_LOG_FOLDER);
     let bootlog = fs::File::create(dmesg_path)?;
     args = vec![
         "-s",

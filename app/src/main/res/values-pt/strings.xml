@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="home">Início</string>
     <string name="patch_warnning">A instalação apresenta riscos. Certifique-se de ter um backup dos seus dados.</string>
     <string name="kernel_patch">KernelPatch</string>
@@ -9,15 +9,15 @@
     <string name="settings">Configurações</string>
     <string name="reboot_recovery">Reiniciar em modo de recuperação</string>
     <string name="about">Sobre</string>
-    <string name="home_learn_apatch">Aprender APatch</string>
-    <string name="home_click_to_learn_apatch">Aprenda sobre as características de APatch e como usar</string>
+    <string name="home_learn_yapatch">Aprender yapatch</string>
+    <string name="home_click_to_learn_yapatch">Aprenda sobre as características de yapatch e como usar</string>
     <string name="super_key">Chave de Segurança</string>
     <string name="patch_set_superkey">Definir Chave de Segurança</string>
     <string name="home_patch_next_step">Próximo passo</string>
     <string name="home_install_unknown">"Não foi instalado ou autenticado "</string>
     <string name="home_click_to_install">Clique para instalar</string>
     <string name="home_need_update">Nova versão Disponível</string>
-    <string name="apatch_version">Versão: %s</string>
+    <string name="yapatch_version">Versão: %s</string>
     <string name="home_auth_key_title">Digitar SuperKey</string>
     <string name="home_ap_cando_update">Atualizar</string>
     <string name="home_ap_cando_uninstall">Desinstalar</string>
@@ -36,7 +36,7 @@
     <string name="kpatch_version">Versão: %s</string>
     <string name="home_working">Funcionado</string>
     <string name="home_installing">Instalando</string>
-    <string name="apatch_version_update">Versão: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Versão: %s -&gt; %s</string>
     <string name="home_ap_cando_install">Instalar</string>
     <string name="home_selinux_status_unknown">Desconhecido</string>
     <string name="kpm_load">Carregar</string>
@@ -49,15 +49,15 @@
     <string name="home_selinux_status">Estado do SELinux</string>
     <string name="home_selinux_status_enforcing">A impor</string>
     <string name="home_selinux_status_permissive">Permissivo</string>
-    <string name="kpm_unload_confirm">Descarregar \"%s\" módulo ?</string>
+    <string name="kpm_unload_confirm">Descarregar "%s" módulo ?</string>
     <string name="kpm_unload">Descarregar</string>
     <string name="kpm_apm_empty">Nenhum módulo carregado</string>
     <string name="su_selinux_via_hook">ignorar via hook</string>
     <string name="kpm_version">Versão</string>
-    <string name="apm_downloading">Baixando o módulo \"%s\"…</string>
+    <string name="apm_downloading">Baixando o módulo "%s"…</string>
     <string name="about_source_code"><![CDATA[<p>Veja o código-fonte em %1$s<p/>Participe do nosso canal %2$s<p/>Participe do nosso grupo %3$s]]></string>
     <string name="clear_super_key">Limpar chave</string>
-    <string name="home_apatch_version">Versão APatch</string>
+    <string name="home_yapatch_version">Versão yapatch</string>
     <string name="kpm_license">Licença</string>
     <string name="kpm_author">Autor</string>
     <string name="kpm_desc">Descrição</string>
@@ -65,17 +65,17 @@
     <string name="su_title">SuperUsuário</string>
     <string name="su_pkg_excluded_label">excluir</string>
     <string name="su_pkg_excluded_setting_title">Excluir modificações</string>
-    <string name="su_pkg_excluded_setting_summary">Ativar esta opção permitirá que o APatch restaure quaisquer ficheiros modificados pelos módulos deste app.</string>
+    <string name="su_pkg_excluded_setting_summary">Ativar esta opção permitirá que o yapatch restaure quaisquer ficheiros modificados pelos módulos deste app.</string>
     <string name="su_show_system_apps">Mostrar apps do sistema</string>
     <string name="su_hide_system_apps">Ocultar apps do sistema</string>
     <string name="su_refresh">Atualizar</string>
     <string name="apm">APMódulo</string>
     <string name="apm_failed_to_enable">Não foi possível ativar o módulo %s</string>
-    <string name="apm_failed_to_disable">Não foi possível desligar o módulo \"%s\"</string>
+    <string name="apm_failed_to_disable">Não foi possível desligar o módulo "%s"</string>
     <string name="apm_empty">Nenhum módulo instalado</string>
     <string name="apm_remove">Remover</string>
     <string name="apm_install">Instalar</string>
-    <string name="apm_uninstall_confirm">Desinstalar o módulo \"%s\"?</string>
+    <string name="apm_uninstall_confirm">Desinstalar o módulo "%s"?</string>
     <string name="apm_uninstall_success">%s desinstalado</string>
     <string name="apm_uninstall_failed">Não foi possível desinstalar %s</string>
     <string name="apm_version">Versão</string>
@@ -140,7 +140,14 @@
     <string name="about_powered_by">Alimentado por %1$s</string>
     <string name="about_app_desc">Solução root do kernel com uma única imagem despojada, oferecendo a capacidade de montar módulos do sistema e interceptar funções do kernel.</string>
     <string name="patch_mode_patch_and_install">Modo: Patch e instalar</string>
-    <string name="home_dialog_auth_fail_content">Não foi possível autenticar a SuperKey, portanto o APatch não pode funcionar corretamente. \nAqui estão alguns possíveis motivos para a falha de autenticação:\n1. Não fez patch do boot.img com KernelPatch.\n2. O boot.img corrigido não foi flashado.\n3. A SuperKey está incorreta ou contém caracteres especiais.\n4. O seu dispositivo não oferece suporte ao APatch e KernelPatch.\n\nPor favor, verifique e tente novamente. Se ainda houver problemas, pode fazer perguntas na página de problemas do repositório oficial.</string>
+    <string name="home_dialog_auth_fail_content">Não foi possível autenticar a SuperKey, portanto o yapatch não pode funcionar corretamente. 
+Aqui estão alguns possíveis motivos para a falha de autenticação:
+1. Não fez patch do boot.img com KernelPatch.
+2. O boot.img corrigido não foi flashado.
+3. A SuperKey está incorreta ou contém caracteres especiais.
+4. O seu dispositivo não oferece suporte ao yapatch e KernelPatch.
+
+Por favor, verifique e tente novamente. Se ainda houver problemas, pode fazer perguntas na página de problemas do repositório oficial.</string>
     <string name="patch_mode_install_to_next_slot">Modo: Instalar no slot inativo (após OTA)</string>
     <string name="patch_mode_uninstall_patch">Modo: Desinstalar KPatch</string>
     <string name="patch_embed_kpm_btn">Introduzir KPM</string>
@@ -153,11 +160,11 @@
     <string name="patch_item_skey">Chave Mestra</string>
     <string name="patch_item_set_skey_label">O comprimento da Chave Mestra deve ter pelo menos 8 caracteres e incluir números e letras.</string>
     <string name="home_kpatch_version">Versão do KernelPatch</string>
-    <string name="hide_apatch_manager">Ocultar o gerenciador do Apatch</string>
-    <string name="hide_apatch_manager_summary">Instalar um app de proxy com ID aleatório e nome personalizado</string>
-    <string name="hide_apatch_dialog_new_manager_name">Nome do novo gestor</string>
-    <string name="hide_apatch_dialog_summary">Ele será usado como a nova tag do aplicativo mostrado ao iniciar</string>
-    <string name="hide_apatch_manager_failure">Falha ao ocultar. Por favor, reporte o bug!</string>
+    <string name="hide_yapatch_manager">Ocultar o gerenciador do yapatch</string>
+    <string name="hide_yapatch_manager_summary">Instalar um app de proxy com ID aleatório e nome personalizado</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Nome do novo gestor</string>
+    <string name="hide_yapatch_dialog_summary">Ele será usado como a nova tag do aplicativo mostrado ao iniciar</string>
+    <string name="hide_yapatch_manager_failure">Falha ao ocultar. Por favor, reporte o bug!</string>
     <string name="setting_reset_su_path">Desfazer o acesso ao su</string>
     <string name="setting_reset_su_new_path">Novo caminho completo</string>
     <string name="enable_web_debugging">Ativar depuração do WebView</string>
@@ -165,8 +172,10 @@
     <string name="settings_donot_store_superkey_summary">Autentique a SuperKey sempre que o gestor iniciar</string>
     <string name="mode_select_page_install_inactive_slot">Instalar no slot inativo (após o OTA)</string>
     <string name="mode_select_page_install_inactive_slot_warning">Seu dispositivo será **FORÇADO** a inicializar no slot inativo atual após uma reinicialização!
-\nUse esta opção somente após a conclusão do OTA.
-\nContinuar?</string>
+
+Use esta opção somente após a conclusão do OTA.
+
+Continuar?</string>
     <string name="home_dialog_auth_fail_title">Falha na autenticação</string>
     <string name="home_more_menu_about">Acerca</string>
     <string name="kpm_control_dialog_title">Controlar KPModule</string>
@@ -187,7 +196,7 @@
     <string name="kpm_control">Control</string>
     <string name="apm_webui_open">Abrir</string>
     <string name="enable_web_debugging_summary">Pode ser usado para depurar o WebUI. Por favor, ative somente quando necessário.</string>
-    <string name="home_new_apatch_found">Nova versão %s está disponível, clique para atualizar.</string>
+    <string name="home_new_yapatch_found">Nova versão %s está disponível, clique para atualizar.</string>
     <string name="mode_select_page_select_file">Selecione uma imagem de inicialização para corrigir</string>
     <string name="mode_select_page_patch_and_install">Patch e instalação</string>
     <string name="home_more_menu_feedback_or_suggestion">Feedback ou sugestão</string>
@@ -213,4 +222,55 @@
     <string name="settings_lite_mode_mode_summary">Funções APModule podem exibir falhas após serem habilitadas, mas em alguns casos elas conseguem evitar detecção eficientemente. Necessário reinicialização.</string>
     <string name="settings_force_overlayfs_mode">Forçar o uso de OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Usar OverlayFS para montar APModules ao invés de Magic Mount quando o suporte ao kernel estiver disponível. Necessário reinicialização.</string>
+    <string name="settings_dark_theme">Tema escuro</string>
+    <string name="settings_theme_amoled">Amoled (preto puro)</string>
+    <string name="on">Ligado</string>
+    <string name="off">Desligado</string>
+    <string name="hide_config_title">Ocultar</string>
+    <string name="hide_files_title">Ocultar arquivos</string>
+    <string name="hide_files_desc">Adicionar arquivos ou diretórios que devem ser ocultados dos aplicativos</string>
+    <string name="hide_files_input_label">Caminho do arquivo ou diretório</string>
+    <string name="spoof_stat_title">Falsificar estatísticas de arquivos</string>
+    <string name="spoof_stat_desc">Adicionar arquivos cujas informações de estatísticas devem ser falsificadas</string>
+    <string name="spoof_stat_input_label">Caminho do arquivo</string>
+    <string name="spoof_uname_title">Falsificar informações do sistema</string>
+    <string name="spoof_uname_desc">Modificar as informações do sistema relatadas pela chamada de sistema uname</string>
+    <string name="hidden_config_title">Configuração oculta</string>
+    <string name="hidden_config_desc">Esta seção permite que você defina recursos avançados de ocultação e falsificação no nível do sistema. Essas configurações podem ajudar a contornar os mecanismos de detecção em aplicativos que verificam a presença de acesso root ou arquivos de sistema modificados.</string>
+    <string name="hidden_config_note">Nota: As alterações entram em vigor imediatamente após salvar. Configurações incorretas podem causar instabilidade no sistema.
+As alterações entram em vigor apenas no uid da lista de exclusão</string>
+    <string name="hide_files_example">Exemplo: TWRP, addon.d, lineage</string>
+    <string name="currently_hidden_files">Arquivos/diretórios atualmente ocultos:</string>
+    <string name="clear_sysname">Limpar sysname</string>
+    <string name="clear_nodename">Limpar nodename</string>
+    <string name="clear_release">Limpar release</string>
+    <string name="clear_version">Limpar version</string>
+    <string name="clear_machine">Limpar machine</string>
+    <string name="clear_domainname">Limpar domainname</string>
+    <string name="sysname_label">sysname</string>
+    <string name="nodename_label">nodename</string>
+    <string name="release_label">release</string>
+    <string name="version_label">version</string>
+    <string name="machine_label">machine</string>
+    <string name="domainname_label">domainname</string>
+    <string name="save_button">Salvar</string>
+    <string name="example_linux">Exemplo: Linux</string>
+    <string name="example_nodename">Exemplos: localhost, mydevice, hostname</string>
+    <string name="example_release">Exemplos: 5.10.0, 4.14.190, 4.19.140</string>
+    <string name="example_version">Exemplos: #1 SMP PREEMPT, #2 SMP Wed, #3 Thu Nov</string>
+    <string name="example_machine">Exemplos: aarch64, armv7l, x86_64, i686</string>
+    <string name="example_domainname">Exemplos: (nenhum), localdomain, mycompany.com</string>
+    <string name="uname_fields_explanation">Explicação dos campos:
+• sysname: Nome do sistema operacional
+• nodename: Nome do host do nó de rede
+• release: Versão de lançamento do kernel
+• version: Versão do kernel
+• machine: Arquitetura de hardware
+• domainname: Nome de domínio NIS/YP</string>
+    <string name="add">Adicionar</string>
+    <string name="remove">Remover</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="about_weblate">Weblate</string>
 </resources>

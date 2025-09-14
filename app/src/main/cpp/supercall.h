@@ -1,6 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 /* 
  * Copyright (C) 2023 bmax121. All Rights Reserved.
+ * Copyright (C) 2025 Yervant7 All Rights Reserved.
  */
 
 #ifndef _KPU_SUPERCALL_H_
@@ -21,6 +22,11 @@ static inline long ver_and_cmd(const char *key, long cmd)
 {
     uint32_t version_code = (MAJOR << 16) + (MINOR << 8) + PATCH;
     return ((long)version_code << 32) | (0x1158 << 16) | (cmd & 0xFFFF);
+}
+
+static long supercall(const char* key, long cmd, long arg1, long arg2, long arg3, long arg4)
+{
+    return syscall(__NR_supercall, key, cmd, arg1, arg2, arg3, arg4);
 }
 
 /**
@@ -138,123 +144,26 @@ static inline long sc_su_task(const char *key, pid_t tid, struct su_profile *pro
 }
 
 /**
- * @brief 
- * 
- * @param key 
- * @param gid group id
- * @param did data id
- * @param data 
- * @param dlen 
- * @return long 
- */
-static inline long sc_kstorage_write(const char *key, int gid, long did, void *data, int offset, int dlen)
-{
-    if (!key || !key[0]) return -EINVAL;
-    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_KSTORAGE_WRITE), gid, did, data, (((long)offset << 32) | dlen));
-    return ret;
-}
-
-/**
- * @brief 
- * 
- * @param key 
- * @param gid 
- * @param did 
- * @param out_data 
- * @param dlen 
- * @return long 
- */
-static inline long sc_kstorage_read(const char *key, int gid, long did, void *out_data, int offset, int dlen)
-{
-    if (!key || !key[0]) return -EINVAL;
-    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_KSTORAGE_READ), gid, did, out_data, (((long)offset << 32) | dlen));
-    return ret;
-}
-
-
-/**
- * @brief 
- * 
- * @param key 
- * @param gid 
- * @param ids 
- * @param ids_len 
- * @return long numbers of listed ids
- */
-static inline long sc_kstorage_list_ids(const char *key, int gid, long *ids, int ids_len)
-{
-    if (!key || !key[0]) return -EINVAL;
-    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_KSTORAGE_LIST_IDS), gid, ids, ids_len);
-    return ret;
-}
-
-
-/**
- * @brief 
- * 
- * @param key 
- * @param gid 
- * @param did 
- * @return long 
- */
-static inline long sc_kstorage_remove(const char *key, int gid, long did)
-{
-    if (!key || !key[0]) return -EINVAL;
-    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_KSTORAGE_REMOVE), gid, did);
-    return ret;
-}
-
-#ifdef ANDROID
-/**
- * @brief 
- * 
- * @param key 
- * @param uid 
- * @param exclude 
- * @return long 
+ * @brief
+ *
+ * @param key
+ * @param uid
+ * @param exclude
+ * @return long
  */
 static inline long sc_set_ap_mod_exclude(const char *key, uid_t uid, int exclude)
 {
-    if(exclude) {
-        return sc_kstorage_write(key, KSTORAGE_EXCLUDE_LIST_GROUP, uid, &exclude, 0, sizeof(exclude));
-    } else {
-        return sc_kstorage_remove(key, KSTORAGE_EXCLUDE_LIST_GROUP, uid);
-    }
+    if (!key || !key[0]) return -EINVAL;
+    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_SET_EXCLUDE_LIST), uid, exclude);
+    return ret;
 }
 
-
-/**
- * @brief 
- * 
- * @param key 
- * @param uid 
- * @param exclude 
- * @return long 
- */
 static inline int sc_get_ap_mod_exclude(const char *key, uid_t uid)
 {
-    int exclude = 0;
-    int rc = sc_kstorage_read(key, KSTORAGE_EXCLUDE_LIST_GROUP, uid, &exclude, 0, sizeof(exclude));
-    if (rc < 0) return 0;
-    return exclude;
+    if (!key || !key[0]) return -EINVAL;
+    long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_IS_UID_EXCLUDED), uid);
+    return (int)ret;
 }
-
-/**
- *
- */
-static inline int sc_list_ap_mod_exclude(const char *key, uid_t *uids, int uids_len)
-{
-    if(uids_len < 0 || uids_len > 512) return -E2BIG;
-    long ids[uids_len];
-    int rc = sc_kstorage_list_ids(key, KSTORAGE_EXCLUDE_LIST_GROUP, ids, uids_len);
-    if (rc < 0) return 0;
-    for(int i = 0; i < rc; i ++) {
-        uids[i] = (uid_t)ids[i];
-    }
-    return rc;
-}
-
-#endif
 
 /**
  * @brief Grant su permission
@@ -563,6 +472,62 @@ static inline long __sc_test(const char *key, long a1, long a2, long a3)
 {
     long ret = syscall(__NR_supercall, key, ver_and_cmd(key, SUPERCALL_TEST), a1, a2, a3);
     return ret;
+}
+
+jint android_hide_files_add(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr)
+{
+    ensureSuperKeyNonNull(super_key_jstr);
+    if (!filename_jstr) {
+        abort();
+    }
+
+    const auto super_key = JUTFString(env, super_key_jstr);
+    const auto filename = JUTFString(env, filename_jstr);
+
+    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_HIDE_FILE_ADD, (long)filename.get(), 0, 0, 0);
+    return (jint)ret;
+}
+
+// Function to remove a file from hide list
+jint android_hide_files_remove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr)
+{
+    ensureSuperKeyNonNull(super_key_jstr);
+    if (!filename_jstr) {
+        abort();
+    }
+
+    const auto super_key = JUTFString(env, super_key_jstr);
+    const auto filename = JUTFString(env, filename_jstr);
+
+    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_HIDE_FILE_REMOVE, (long)filename.get(), 0, 0, 0);
+    return (jint)ret;
+}
+
+// Function to set uname field
+jint android_spoof_uname_set(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field, jstring value_jstr)
+{
+    ensureSuperKeyNonNull(super_key_jstr);
+    if (!value_jstr) {
+        abort();
+    }
+
+    const auto super_key = JUTFString(env, super_key_jstr);
+    const auto value = JUTFString(env, value_jstr);
+
+    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_SPOOF_UNAME_SET, (long)field, (long)value.get(), 0, 0);
+    return (jint)ret;
+}
+
+// Function to get uname field
+jint android_spoof_uname_remove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field)
+{
+    ensureSuperKeyNonNull(super_key_jstr);
+
+    const auto super_key = JUTFString(env, super_key_jstr);
+
+    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_SPOOF_UNAME_REMOVE, (long)field, 0, 0, 0);
+
+    return (jint)ret;
 }
 
 #endif

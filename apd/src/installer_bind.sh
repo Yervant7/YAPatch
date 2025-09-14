@@ -1,6 +1,6 @@
 #!/system/bin/sh
 ############################################
-# APatch Module installer script
+# YAPatch Module installer script
 # mostly from module_installer.sh
 # and util_functions.sh in Magisk
 ############################################
@@ -369,7 +369,7 @@ install_module() {
     set_permissions
   else
     print_title "$MODNAME" "by $MODAUTH"
-    print_title "Powered by APatch"
+    print_title "Powered by YAPatch"
 
     unzip -o "$ZIPFILE" customize.sh -d $MODPATH >&2
 

@@ -1,6 +1,6 @@
 use crate::package::{read_ap_package_config, synchronize_package_uid};
 use errno::errno;
-use libc::{EINVAL, c_int, c_long, c_void, execv, fork, pid_t, setenv, syscall, uid_t, wait};
+use libc::{EINVAL, c_int, c_long, execv, fork, pid_t, setenv, syscall, uid_t, wait};
 use log::{error, info, warn};
 use std::ffi::{CStr, CString};
 use std::fmt::Write;
@@ -16,20 +16,18 @@ const MAJOR: c_long = 0;
 const MINOR: c_long = 11;
 const PATCH: c_long = 1;
 
-const KSTORAGE_EXCLUDE_LIST_GROUP: i32 = 1;
-
 const __NR_SUPERCALL: c_long = 45;
 const SUPERCALL_KLOG: c_long = 0x1004;
 const SUPERCALL_KERNELPATCH_VER: c_long = 0x1008;
 const SUPERCALL_KERNEL_VER: c_long = 0x1009;
 const SUPERCALL_SU: c_long = 0x1010;
-const SUPERCALL_KSTORAGE_WRITE: c_long = 0x1041;
 const SUPERCALL_SU_GRANT_UID: c_long = 0x1100;
 const SUPERCALL_SU_REVOKE_UID: c_long = 0x1101;
 const SUPERCALL_SU_NUMS: c_long = 0x1102;
 const SUPERCALL_SU_LIST: c_long = 0x1103;
 const SUPERCALL_SU_RESET_PATH: c_long = 0x1111;
 const SUPERCALL_SU_GET_SAFEMODE: c_long = 0x1112;
+const SUPERCALL_SET_EXCLUDE_LIST: c_long = 0x1160;
 
 const SUPERCALL_SCONTEXT_LEN: usize = 0x60;
 
@@ -73,14 +71,7 @@ fn sc_su_grant_uid(key: &CStr, profile: &SuProfile) -> c_long {
     }
 }
 
-fn sc_kstorage_write(
-    key: &CStr,
-    gid: i32,
-    did: i64,
-    data: *mut c_void,
-    offset: i32,
-    dlen: i32,
-) -> c_long {
+fn sc_set_ap_mod_exclude(key: &CStr, uid: uid_t, exclude: i32) -> c_long {
     if key.to_bytes().is_empty() {
         return (-EINVAL).into();
     }
@@ -88,24 +79,11 @@ fn sc_kstorage_write(
         syscall(
             __NR_SUPERCALL,
             key.as_ptr(),
-            ver_and_cmd(SUPERCALL_KSTORAGE_WRITE),
-            gid as c_long,
-            did as c_long,
-            data,
-            (((offset as i64) << 32) | (dlen as i64)) as c_long,
+            ver_and_cmd(SUPERCALL_SET_EXCLUDE_LIST),
+            uid,
+            exclude,
         ) as c_long
     }
-}
-
-fn sc_set_ap_mod_exclude(key: &CStr, uid: i64, exclude: i32) -> c_long {
-    sc_kstorage_write(
-        key,
-        KSTORAGE_EXCLUDE_LIST_GROUP,
-        uid,
-        &exclude as *const i32 as *mut c_void,
-        0,
-        size_of::<i32>() as i32,
-    )
 }
 
 pub fn sc_su_get_safemode(key: &CStr) -> c_long {
@@ -295,7 +273,7 @@ pub fn refresh_ap_package_list(skey: &CStr, mutex: &Arc<Mutex<()>>) {
             );
         }
         if config.allow == 0 && config.exclude == 1 {
-            let result = sc_set_ap_mod_exclude(skey, config.uid as i64, 1);
+            let result = sc_set_ap_mod_exclude(skey, config.uid as uid_t, 1);
             info!(
                 "[refresh_ap_package_list] Loading exclude {}: result = {}",
                 config.pkg, result
@@ -343,7 +321,7 @@ pub fn init_load_package_uid_config(superkey: &Option<String>) {
         if config.allow == 0 && config.exclude == 1 {
             match key {
                 Some(ref key) => {
-                    let result = sc_set_ap_mod_exclude(key, config.uid as i64, 1);
+                    let result = sc_set_ap_mod_exclude(key, config.uid as uid_t, 1);
                     info!("Processed exclude {}: result = {}", config.pkg, result);
                 }
                 _ => {

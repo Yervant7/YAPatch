@@ -2,14 +2,14 @@
 <resources>
     <string name="apm">Moduły AP</string>
     <string name="super_key">SuperKey</string>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="kpm">Moduły KP</string>
     <string name="home">Pulpit</string>
     <string name="send_log">Prześlij logi</string>
     <string name="kpatch_version">Wersja: %s</string>
-    <string name="home_click_to_learn_apatch">Dowiedz się o funkcjach APatcha i jak go używać</string>
+    <string name="home_click_to_learn_yapatch">Dowiedz się o funkcjach yapatcha i jak go używać</string>
     <string name="home_installing">Instalowanie</string>
-    <string name="home_learn_apatch">Poznaj APatch</string>
+    <string name="home_learn_yapatch">Poznaj yapatch</string>
     <string name="home_click_to_install">Kliknij, aby zainstalować</string>
     <string name="about">Informacje</string>
     <string name="reboot">Uruchom ponownie</string>
@@ -19,17 +19,17 @@
     <string name="home_not_installed">Nie zainstalowany</string>
     <string name="about_source_code"><![CDATA[<p>Zobacz kod źródłowy na %1$s<p/>Dołącz do naszego kanału %2$s <p/>Dołącz do naszej grupy %3$s]]></string>
     <string name="home_ap_cando_uninstall">Odinstaluj</string>
-    <string name="apatch_version">Wersja: %s</string>
+    <string name="yapatch_version">Wersja: %s</string>
     <string name="home_ap_cando_install">Instaluj</string>
     <string name="home_selinux_status">Status SELinux</string>
     <string name="home_su_path">Plik wykonywalny su</string>
-    <string name="apatch_version_update">Wersja: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Wersja: %s -&gt; %s</string>
     <string name="home_kernel">Wersja jądra</string>
     <string name="home_manager_version">Wersja menedżera</string>
     <string name="patch_title">Załataj</string>
     <string name="home_selinux_status_disabled">Wyłączony</string>
     <string name="home_selinux_status_enforcing">Wymuszony</string>
-    <string name="su_pkg_excluded_setting_summary">Włączenie tej opcji umożliwi APatch przywrócenie wszystkich plików zmodyfikowanych przez moduły tej aplikacji.</string>
+    <string name="su_pkg_excluded_setting_summary">Włączenie tej opcji umożliwi yapatch przywrócenie wszystkich plików zmodyfikowanych przez moduły tej aplikacji.</string>
     <string name="su_title">Superuser</string>
     <string name="kpm_version">Wersja</string>
     <string name="su_refresh">Odśwież</string>
@@ -65,7 +65,7 @@
     <string name="reboot_recovery">Restartuj do Recovery</string>
     <string name="patch_set_superkey">Ustaw SuperKey</string>
     <string name="reboot_bootloader">Restartuj do Bootloadera</string>
-    <string name="home_apatch_version">Wersja APatch</string>
+    <string name="home_yapatch_version">Wersja yapatch</string>
     <string name="home_auth_key_title">Wpisz SuperKey</string>
     <string name="apm_reboot_to_apply">Uruchom ponownie aby zadziałało</string>
     <string name="apm_empty">Brak zainstalowanych modułów</string>
@@ -128,8 +128,8 @@
     <string name="patch_mode_patch_and_install">Tryb: Aktualizacja</string>
     <string name="patch_mode_uninstall_patch">Tryb: Odłatkowanie</string>
     <string name="teal_theme">Morski</string>
-    <string name="hide_apatch_dialog_new_manager_name">Nowa nazwa menedżera</string>
-    <string name="hide_apatch_dialog_summary">Będzie używana jako nowa nazwa aplikacji pokazana w Launcherze</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Nowa nazwa menedżera</string>
+    <string name="hide_yapatch_dialog_summary">Będzie używana jako nowa nazwa aplikacji pokazana w Launcherze</string>
     <string name="setting_reset_su_path">Zresetuj ścieżkę su</string>
     <string name="enable_web_debugging">Włącz debugowanie WebView</string>
     <string name="mode_select_page_select_file">Wybierz obraz boot do załatania</string>
@@ -141,8 +141,8 @@
     <string name="kpm_add_kpm">Dodaj KPM</string>
     <string name="kpm_embed">Osadź</string>
     <string name="kpm_control">Kontrola</string>
-    <string name="hide_apatch_manager">Ukryj menedżer APatch</string>
-    <string name="hide_apatch_manager_summary">Zainstaluj aplikację proxy z losowym ID pakietu i niestandardową etykietą</string>
+    <string name="hide_yapatch_manager">Ukryj menedżer yapatch</string>
+    <string name="hide_yapatch_manager_summary">Zainstaluj aplikację proxy z losowym ID pakietu i niestandardową etykietą</string>
     <string name="mode_select_page_install_inactive_slot_warning">Twoje urządzenie będzie **ZMUSZONE** do uruchomienia się w bieżącym nieaktywnym slocie po ponownym uruchomieniu!\nUżywaj tej opcji tylko po zakończeniu aktualizacji OTA.\nKontynuować?</string>
     <string name="about_telegram_channel">Kanał na Telegramie</string>
     <string name="about_app_version">Wersja %1$s</string>
@@ -182,15 +182,15 @@
     <string name="amber_theme">Bursztynowy</string>
     <string name="lime_theme">Limonkowy</string>
     <string name="orange_theme">Pomarańczowy</string>
-    <string name="hide_apatch_manager_failure">Nie udało się ukryć. Zgłoś błąd!</string>
+    <string name="hide_yapatch_manager_failure">Nie udało się ukryć. Zgłoś błąd!</string>
     <string name="enable_web_debugging_summary">Może być używane do debugowania WebUI. Włącz tylko w razie potrzeby.</string>
     <string name="settings_donot_store_superkey">Nie przechowuj SuperKey lokalnie</string>
     <string name="settings_donot_store_superkey_summary">Uwierzytelniaj SuperKey przy każdym uruchomieniu menadżera</string>
-    <string name="home_new_apatch_found">Dostępna jest nowa wersja %s. Kliknij, aby uaktualnić.</string>
+    <string name="home_new_yapatch_found">Dostępna jest nowa wersja %s. Kliknij, aby uaktualnić.</string>
     <string name="mode_select_page_title">Zainstaluj</string>
     <string name="mode_select_page_install_inactive_slot">Zainstaluj do nieaktywnego slotu (po aktualizacji OTA)</string>
     <string name="sakura_theme">Sakura</string>
-    <string name="home_dialog_auth_fail_content">Nie można uwierzytelnić SuperKey, dlatego APatch nie może działać poprawnie.\nOto kilka możliwych przyczyn niepowodzenia uwierzytelniania:\n1. Nie zaktualizowano pliku boot.img za pomocą KernelPatch.\n2. Poprawiony plik boot.img nie został sflashowany.\n3. Klucz SuperKey jest nieprawidłowy lub zawiera znaki specjalne.\n4. Urządzenie nie obsługuje APatch i KernelPatch.\n\nSprawdź i spróbuj ponownie. Jeśli nadal występują problemy, zawsze możesz zadawać pytania na oficjalnej stronie repozytorium.</string>
+    <string name="home_dialog_auth_fail_content">Nie można uwierzytelnić SuperKey, dlatego yapatch nie może działać poprawnie.\nOto kilka możliwych przyczyn niepowodzenia uwierzytelniania:\n1. Nie zaktualizowano pliku boot.img za pomocą KernelPatch.\n2. Poprawiony plik boot.img nie został sflashowany.\n3. Klucz SuperKey jest nieprawidłowy lub zawiera znaki specjalne.\n4. Urządzenie nie obsługuje yapatch i KernelPatch.\n\nSprawdź i spróbuj ponownie. Jeśli nadal występują problemy, zawsze możesz zadawać pytania na oficjalnej stronie repozytorium.</string>
     <string name="home_more_menu_feedback_or_suggestion">Opinie bądź sugestie</string>
     <string name="about_app_desc">Rozwiązanie rootowania jądra z jedynie okrojonym obrazem jądra, zapewniające możliwość montowania modułu systemowego i hakowania funkcji jądra.</string>
     <string name="success">Zakończono sukcesem</string>

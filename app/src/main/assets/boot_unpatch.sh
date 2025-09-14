@@ -1,6 +1,6 @@
 #!/system/bin/sh
 #######################################################################################
-# APatch Boot Image Unpatcher
+# YAPatch Boot Image Unpatcher
 #######################################################################################
 
 ARCH=$(getprop ro.product.cpu.abi)
@@ -9,7 +9,7 @@ ARCH=$(getprop ro.product.cpu.abi)
 . ./util_functions.sh
 
 echo "****************************"
-echo " APatch Boot Image Unpatcher"
+echo " YAPatch Boot Image Unpatcher"
 echo "****************************"
 
 BOOTIMAGE=$1

@@ -12,11 +12,11 @@
     <string name="settings_app_language">Llengua</string>
     <string name="settings_global_namespace_mode">Mode d\'espai de noms global</string>
     <string name="settings_check_update">Cerca actualitzacions</string>
-    <string name="home_learn_apatch">Aprèn APatch</string>
-    <string name="home_click_to_learn_apatch">Obteniu informació sobre les funcions d\'APatch i com utilitzar-lo</string>
+    <string name="home_learn_yapatch">Aprèn yapatch</string>
+    <string name="home_click_to_learn_yapatch">Obteniu informació sobre les funcions d\'yapatch i com utilitzar-lo</string>
     <string name="home_install_unknown">No instal·lat ni autenticat</string>
     <string name="home_working">Treballant 😋</string>
-    <string name="apatch_version">Versió: %s</string>
+    <string name="yapatch_version">Versió: %s</string>
     <string name="kpatch_shadow_path_title">kpatch</string>
     <string name="home_auth_key_title">Insereix SuperClau</string>
     <string name="home_ap_cando_update">Actualitzar</string>
@@ -49,7 +49,7 @@
     <string name="home_ap_cando_install">Instal·lar</string>
     <string name="patch_title">Pegat</string>
     <string name="home_patch_set_key_desc">Només credencial per KernelPatch</string>
-    <string name="apatch_version_update">Versió: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Versió: %s -&gt; %s</string>
     <string name="patch_config_title">Pegat</string>
     <string name="patch_mode_bootimg_patch">Mode: Pegat</string>
     <string name="patch_mode_patch_and_install">Mode: Aplicar pegat i instal·lar</string>
@@ -90,7 +90,7 @@
     <string name="patch_item_extra_name">Nom:</string>
     <string name="home_kernel">Kernel</string>
     <string name="home_selinux_status_disabled">Deshabilitat</string>
-    <string name="home_apatch_version">Versió de APatch</string>
+    <string name="home_yapatch_version">Versió de yapatch</string>
     <string name="kpm">KPModule</string>
     <string name="kpm_kp_not_installed">KernelPatch no instal·lat</string>
     <string name="kpm_embed">Inserir</string>

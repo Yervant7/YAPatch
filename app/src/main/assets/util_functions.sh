@@ -2,8 +2,8 @@
 #######################################################################################
 # Helper Functions (credits to topjohnwu)
 #######################################################################################
-APATCH_VER='0.10.4'
-APATCH_VER_CODE=164
+YAPatch_VER='0.10.4'
+YAPatch_VER_CODE=164
 
 ui_print() {
   if $BOOTMODE; then
@@ -405,7 +405,7 @@ get_flags() {
   [ -z $RECOVERYMODE ] && RECOVERYMODE=false
 }
 
-install_apatch() {
+install_YAPatch() {
   cd $MAGISKBIN
 
   # Source the boot patcher

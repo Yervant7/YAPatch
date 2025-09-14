@@ -24,3 +24,6 @@
 -allowaccessmodification
 -overloadaggressively
 -renamesourcefileattribute SourceFile
+
+# Keep JNI class
+-keep class me.yervant.yapatch.Natives { *; }

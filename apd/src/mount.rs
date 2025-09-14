@@ -182,15 +182,43 @@ pub fn mount_overlayfs(
 }
 #[cfg(any(target_os = "linux", target_os = "android"))]
 pub fn mount_devpts(dest: impl AsRef<Path>) -> Result<()> {
-    create_dir(dest.as_ref())?;
-    mount(
-        AP_OVERLAY_SOURCE,
-        dest.as_ref(),
-        "devpts",
-        MountFlags::empty(),
-        "newinstance",
-    )?;
-    mount_change(dest.as_ref(), MountPropagationFlags::PRIVATE).context("make devpts private")?;
+    let dest = dest.as_ref();
+
+    if !dest.exists() {
+        create_dir(dest)?;
+    }
+
+    mount_change(dest, MountPropagationFlags::PRIVATE)
+        .context("make devpts parent private BEFORE mount")?;
+
+    match fsopen("devpts", FsOpenFlags::FSOPEN_CLOEXEC) {
+        Result::Ok(fs) => {
+            let fs = fs.as_fd();
+            fsconfig_set_string(fs, "source", AP_OVERLAY_SOURCE)?;
+            fsconfig_set_string(fs, "newinstance", "")?;
+            fsconfig_create(fs)?;
+            let mount = fsmount(fs, FsMountFlags::FSMOUNT_CLOEXEC, MountAttrFlags::empty())?;
+            move_mount(
+                mount.as_fd(),
+                "",
+                CWD,
+                dest,
+                MoveMountFlags::MOVE_MOUNT_F_EMPTY_PATH,
+            )?;
+        }
+        Err(_) => {
+            mount(
+                AP_OVERLAY_SOURCE,
+                dest,
+                "devpts",
+                MountFlags::empty(),
+                "newinstance",
+            )?;
+        }
+    }
+
+    mount_change(dest, MountPropagationFlags::PRIVATE)
+        .context("make devpts private AFTER mount")?;
     Ok(())
 }
 #[cfg(not(any(target_os = "linux", target_os = "android")))]
@@ -199,7 +227,17 @@ pub fn mount_devpts(_dest: impl AsRef<Path>) -> Result<()> {
 }
 #[cfg(any(target_os = "linux", target_os = "android"))]
 pub fn mount_tmpfs(dest: impl AsRef<Path>) -> Result<()> {
-    info!("mount tmpfs on {}", dest.as_ref().display());
+    let dest = dest.as_ref();
+
+    if !dest.exists() {
+        create_dir(dest).with_context(|| format!("create_dir failed for {}", dest.display()))?;
+    }
+
+    mount_change(dest, MountPropagationFlags::PRIVATE)
+        .context("make dest private BEFORE mount")?;
+
+    info!("mount tmpfs on {}", dest.display());
+
     match fsopen("tmpfs", FsOpenFlags::FSOPEN_CLOEXEC) {
         Result::Ok(fs) => {
             let fs = fs.as_fd();
@@ -210,24 +248,27 @@ pub fn mount_tmpfs(dest: impl AsRef<Path>) -> Result<()> {
                 mount.as_fd(),
                 "",
                 CWD,
-                dest.as_ref(),
+                dest,
                 MoveMountFlags::MOVE_MOUNT_F_EMPTY_PATH,
             )?;
         }
-        _ => {
+        Err(_) => {
             mount(
                 AP_OVERLAY_SOURCE,
-                dest.as_ref(),
+                dest,
                 "tmpfs",
                 MountFlags::empty(),
                 "",
             )?;
         }
     }
-    mount_change(dest.as_ref(), MountPropagationFlags::PRIVATE).context("make tmpfs private")?;
-    let pts_dir = format!("{}/{PTS_NAME}", dest.as_ref().display());
-    if let Err(e) = mount_devpts(pts_dir) {
-        warn!("do devpts mount failed: {}", e);
+
+    mount_change(dest, MountPropagationFlags::PRIVATE)
+        .context("make tmpfs private AFTER mount")?;
+
+    let pts_dir = dest.join(PTS_NAME);
+    if let Err(e) = mount_devpts(&pts_dir) {
+        warn!("failed to mount devpts: {}", e);
     }
     Ok(())
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="apm_reboot_to_apply">Değişikleri uygulamak için yeniden başlatın</string>
     <string name="android_patch">AndroidPatch</string>
     <string name="kpm_unload_confirm">\"%s\" modülü boşaltılsın mı?</string>
@@ -17,9 +17,9 @@
     <string name="apm_uninstall_confirm">\"%s\" modülü kaldırılsın mı?</string>
     <string name="su_pkg_excluded_setting_title">Değişiklikleri hariç tut</string>
     <string name="reboot_download">İndirme modunda yeniden başlat</string>
-    <string name="home_click_to_learn_apatch">APatch\'in özelliklerini ve nasıl kullanılacağını öğrenin</string>
+    <string name="home_click_to_learn_yapatch">yapatch\'in özelliklerini ve nasıl kullanılacağını öğrenin</string>
     <string name="apm_version">Sürüm</string>
-    <string name="su_pkg_excluded_setting_summary">Bu seçeneğin etkinleştirilmesi APatch\'in bu uygulamanın modülleri tarafından değiştirilmiş herhangi bir dosyayı geri yüklemesine izin verecektir.</string>
+    <string name="su_pkg_excluded_setting_summary">Bu seçeneğin etkinleştirilmesi yapatch\'in bu uygulamanın modülleri tarafından değiştirilmiş herhangi bir dosyayı geri yüklemesine izin verecektir.</string>
     <string name="reboot_edl">EDL modunda yeniden başlat</string>
     <string name="home_installing">Kuruluyor</string>
     <string name="apm_start_downloading">İndirme başladı: \"%s\"</string>
@@ -31,7 +31,7 @@
     <string name="home_ap_cando_uninstall">Kaldır</string>
     <string name="kpm_args">Argümanlar</string>
     <string name="home_fingerprint">Parmak izi</string>
-    <string name="apatch_version">Sürüm: %s</string>
+    <string name="yapatch_version">Sürüm: %s</string>
     <string name="apm_overlay_fs_not_available">OverlayFS, kernel tarafından devre dışı bırakıldığından modüllere erişilemiyor!</string>
     <string name="kpm_version">Sürüm</string>
     <string name="su_refresh">Yenile</string>
@@ -40,12 +40,12 @@
     <string name="home_ap_cando_install">Kur</string>
     <string name="super_key">Süper Anahtar</string>
     <string name="reboot_recovery">Kurtarma modunda yeniden başlat</string>
-    <string name="home_learn_apatch">APatch\'i öğrenin</string>
+    <string name="home_learn_yapatch">yapatch\'i öğrenin</string>
     <string name="apm_failed_to_disable">\"%s \"modülü devre dışı bırakılamadı</string>
     <string name="kernel_patch">KernelPatch</string>
     <string name="home_click_to_install">Kurmak için tıklayın</string>
     <string name="home_selinux_status_unknown">Bilinmiyor</string>
-    <string name="home_apatch_version">APatch sürümü</string>
+    <string name="home_yapatch_version">yapatch sürümü</string>
     <string name="about">Hakkında</string>
     <string name="home_selinux_status_permissive">Serbest</string>
     <string name="reboot">Yeniden başlat</string>
@@ -68,7 +68,7 @@
     <string name="home_selinux_status_disabled">Devredışı</string>
     <string name="settings">Ayarlar</string>
     <string name="apm_new_version_available">Yeni %s sürümü mevcut, yükseltmek için tıklayın.</string>
-    <string name="apatch_version_update">Sürüm: %s -&gt; %s</string>
+    <string name="yapatch_version_update">Sürüm: %s -&gt; %s</string>
     <string name="home_working">Çalışıyor 😋</string>
     <string name="apm_empty">Hiç modül kurulmadı</string>
     <string name="kpm_load">Yükle</string>
@@ -127,19 +127,19 @@
     <string name="patch_item_extra_event">Olay:</string>
     <string name="patch_item_skey">SüperAnahtar</string>
     <string name="patch_item_set_skey_label">SüperAnahtarın uzunluğu 8-63 karakter uzunluğunda olmalı ve rakam ve harf içermeli, fakat özel karakter içermemelidir.</string>
-    <string name="hide_apatch_manager">APatch Yöneticisini Gizle</string>
-    <string name="hide_apatch_dialog_summary">Başlatıcıda gösterilen yeni uygulama etiketi olarak kullanılacaktır</string>
+    <string name="hide_yapatch_manager">yapatch Yöneticisini Gizle</string>
+    <string name="hide_yapatch_dialog_summary">Başlatıcıda gösterilen yeni uygulama etiketi olarak kullanılacaktır</string>
     <string name="kpm_add_kpm">KPM ekle</string>
     <string name="kpm_embed">Göm</string>
-    <string name="hide_apatch_dialog_new_manager_name">Yeni yönetici adı</string>
-    <string name="hide_apatch_manager_failure">Gizlenemedi. Lütfen hatayı bildirin!</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Yeni yönetici adı</string>
+    <string name="hide_yapatch_manager_failure">Gizlenemedi. Lütfen hatayı bildirin!</string>
     <string name="kpm_install">Kur</string>
-    <string name="hide_apatch_manager_summary">Rastgele bir paket kimliği ve özel bir uygulama etiketiyle bir proxy uygulaması yükle.</string>
+    <string name="hide_yapatch_manager_summary">Rastgele bir paket kimliği ve özel bir uygulama etiketiyle bir proxy uygulaması yükle.</string>
     <string name="setting_reset_su_path">\"su\" programı yolunu sıfırla</string>
     <string name="setting_reset_su_new_path">Yeni tam yol</string>
     <string name="success">Başarılı</string>
     <string name="failure">Başarısız</string>
-    <string name="home_new_apatch_found">Yeni sürüm var: %s, Yükseltmek için tıklayın</string>
+    <string name="home_new_yapatch_found">Yeni sürüm var: %s, Yükseltmek için tıklayın</string>
     <string name="settings_check_update">Güncellemeleri denetle</string>
     <string name="patch_mode_install_to_next_slot">Mod: Aktif olmayan yuvaya kur (OTA\'dan sonra)</string>
     <string name="mode_select_page_patch_and_install">Yama ve Kur</string>
@@ -152,7 +152,7 @@
     <string name="mode_select_page_install_inactive_slot_warning">Aygıtınız yeniden başlatıldıktan sonra geçerli etkin olmayan yuvaya önyükleme yapmaya **ZORLANACAK**!
 \nBu seçeneği yalnızca OTA tamamlandıktan sonra kullanın.
 \nDevam edilsin mi?</string>
-    <string name="home_dialog_auth_fail_content">SuperKey doğrulanamadığından APatch düzgün çalışamıyor.\nDoğrulama başarısızlığının bazı olası nedenleri şunlardır:\n1. boot.img dosyasını KernelPatch ile yamalamadınız.\n2. Yamalı boot.img dosyası yazılmadı.\n3. SuperKey hatalı ya da özel karakterler içeriyor.\n4. Cihazınız APatch ve KernelPatch desteklemiyor.\n\nLütfen bu maddeleri gözden geçirin ve tekrar deneyin. Hala sorun varsa, resmi deponun sorunlar sayfasından her zaman soru sorabilirsiniz.</string>
+    <string name="home_dialog_auth_fail_content">SuperKey doğrulanamadığından yapatch düzgün çalışamıyor.\nDoğrulama başarısızlığının bazı olası nedenleri şunlardır:\n1. boot.img dosyasını KernelPatch ile yamalamadınız.\n2. Yamalı boot.img dosyası yazılmadı.\n3. SuperKey hatalı ya da özel karakterler içeriyor.\n4. Cihazınız yapatch ve KernelPatch desteklemiyor.\n\nLütfen bu maddeleri gözden geçirin ve tekrar deneyin. Hala sorun varsa, resmi deponun sorunlar sayfasından her zaman soru sorabilirsiniz.</string>
     <string name="settings_check_update_summary">Uygulama açıldığında güncellemeleri otomatik olarak denetle</string>
     <string name="apm_webui_open">Aç</string>
     <string name="enable_web_debugging">Web Görünümü Hata Ayıklamayı Etkinleştir</string>

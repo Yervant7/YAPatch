@@ -11,8 +11,8 @@
     <string name="settings_global_namespace_mode">حالت نام جهانی</string>
     <string name="settings_clear_super_key_dialog">آیا واقعا میخواهید ادامه دهید؟</string>
     <string name="settings_check_update">برسی نسخه به روز</string>
-    <string name="home_click_to_learn_apatch">با ویژگی های APatch و نحو استفاده آن آشنا شوید</string>
-    <string name="home_learn_apatch">با APatch آشنا شو</string>
+    <string name="home_click_to_learn_yapatch">با ویژگی های yapatch و نحو استفاده آن آشنا شوید</string>
+    <string name="home_learn_yapatch">با yapatch آشنا شو</string>
     <string name="send_log">ارسال گزارشات</string>
     <string name="save_log">ذخیره گزارشات</string>
     <string name="safe_mode">حالت امن</string>
@@ -51,13 +51,13 @@
     <string name="patch_item_extra_version">نسخه:</string>
     <string name="patch_item_extra_author">نویسنده:</string>
     <string name="home_auth_key_title">واردکردن ابر کلید</string>
-    <string name="apatch_version_update">نسخه: %s -&gt; %s</string>
+    <string name="yapatch_version_update">نسخه: %s -&gt; %s</string>
     <string name="home_install_unknown_summary">برای نصب کلیک کنید</string>
     <string name="home_click_to_install">برای نصب کلیک کنید</string>
     <string name="home_working">در‌حال‌کار 😋</string>
     <string name="home_installing">نصب کردن</string>
     <string name="kpatch_version">نسخه: %s</string>
-    <string name="apatch_version">نسخه: %s</string>
+    <string name="yapatch_version">نسخه: %s</string>
     <string name="kpatch_version_update">نسخه: %s -&gt; %s</string>
     <string name="kpatch_shadow_path_title">پچk</string>
     <string name="home_ap_cando_update">به روز رسانی</string>
@@ -108,9 +108,9 @@
     <string name="kpm_desc">شرح</string>
     <string name="su_selinux_via_hook">دور زدن از طریق قلاب</string>
     <string name="su_pkg_excluded_setting_title">تغییرات صرف نظر شده</string>
-    <string name="su_pkg_excluded_setting_summary">فعال کردن این گزینه به APatch اجازه خواهد داد تا فایل‌های تغییر یافته توسط ماژول‌های این برنامه را بازیابی کند.</string>
+    <string name="su_pkg_excluded_setting_summary">فعال کردن این گزینه به yapatch اجازه خواهد داد تا فایل‌های تغییر یافته توسط ماژول‌های این برنامه را بازیابی کند.</string>
     <string name="su_hide_system_apps">مخفی کردن برنامه‌های سیستمی</string>
-    <string name="home_apatch_version">نسخه APatch</string>
+    <string name="home_yapatch_version">نسخه yapatch</string>
     <string name="kpm_add_kpm">اضافه کردن KPM</string>
     <string name="kpm_apm_empty">هیچ ماژول بارگیری نشده</string>
     <string name="kpm_install">نصب</string>
@@ -164,17 +164,17 @@
     <string name="apm_update">بروزرسانی</string>
     <string name="apm_downloading">بارگیری ماژول \"%s\" …</string>
     <string name="apm_new_version_available">نسخه جدید %s در دسترس است، برای بروزرسانی کلیک کنید.</string>
-    <string name="hide_apatch_manager">مخفی کردن مدیر APatch</string>
+    <string name="hide_yapatch_manager">مخفی کردن مدیر yapatch</string>
     <string name="apm_reboot_to_apply">برای اعمال مجددا راه اندازی کنید</string>
-    <string name="hide_apatch_manager_summary">نصب یک برنامه مدیریت با یک شناسه تصادفی و برچسب سفارشی</string>
-    <string name="hide_apatch_manager_failure">پنهان کردن ناموفق بود. لطفا ایراد را گزارش کنید!</string>
-    <string name="hide_apatch_dialog_new_manager_name">نام مدیر جدید</string>
-    <string name="hide_apatch_dialog_summary">به عنوان برچسب جدید برنامه برای نمایش در لانچر استفاده خواهد شد</string>
+    <string name="hide_yapatch_manager_summary">نصب یک برنامه مدیریت با یک شناسه تصادفی و برچسب سفارشی</string>
+    <string name="hide_yapatch_manager_failure">پنهان کردن ناموفق بود. لطفا ایراد را گزارش کنید!</string>
+    <string name="hide_yapatch_dialog_new_manager_name">نام مدیر جدید</string>
+    <string name="hide_yapatch_dialog_summary">به عنوان برچسب جدید برنامه برای نمایش در لانچر استفاده خواهد شد</string>
     <string name="setting_reset_su_path">تنظیم مجدد مسیر su</string>
     <string name="apm_webui_open">باز کردن</string>
     <string name="apm_action">اجرا</string>
     <string name="mode_select_page_select_file">یک نمونه بوت را برای وصله کردن انتخاب کنید</string>
-    <string name="home_new_apatch_found">نسخه جدید %s در دسترس است، برای بروزرسانی کلیک کنید.</string>
+    <string name="home_new_yapatch_found">نسخه جدید %s در دسترس است، برای بروزرسانی کلیک کنید.</string>
     <string name="home_more_menu_about">درباره</string>
     <string name="kpm_control_paramters">پارامتر ها</string>
     <string name="kpm_control_ok">عملیات موفق بود!</string>
@@ -201,7 +201,7 @@
     <string name="kpm_control_outMsg">پیام</string>
     <string name="settings_use_system_color_theme">تم رنگی سیستم</string>
     <string name="kpm_control_dialog_title">کنترل KPModule</string>
-    <string name="home_dialog_auth_fail_content">اعتبار سنجی ابر کلید ناموفق بود، بنابراین APatch نمی تواند به درستی کار کند. \nدلایل احتمالی:\n1. شما boot.img را به KernelPatch وصله نکردید.\n2. وصله boot.img فلش نشده است.\n3. ابر کلید اشتباه است یا حاوی کاراکترهای خاص است.\n4. دستگاه شما از APatch و KernelPatch پشتیبانی نمی کند.\n\nلطفا بررسی کنید و دوباره امتحان کنید. اگر هنوز مشکلات وجود دارند، همیشه می توانید در صفحه مسائل مخزن رسمی سؤال بپرسید..</string>
+    <string name="home_dialog_auth_fail_content">اعتبار سنجی ابر کلید ناموفق بود، بنابراین yapatch نمی تواند به درستی کار کند. \nدلایل احتمالی:\n1. شما boot.img را به KernelPatch وصله نکردید.\n2. وصله boot.img فلش نشده است.\n3. ابر کلید اشتباه است یا حاوی کاراکترهای خاص است.\n4. دستگاه شما از yapatch و KernelPatch پشتیبانی نمی کند.\n\nلطفا بررسی کنید و دوباره امتحان کنید. اگر هنوز مشکلات وجود دارند، همیشه می توانید در صفحه مسائل مخزن رسمی سؤال بپرسید..</string>
     <string name="settings_night_mode_follow_sys_summary">جابجایی خودکار به تم تاریک بر اساس تنظیمات سیستم</string>
     <string name="settings_use_system_color_theme_summary">استفاده از تم رنگی تولید شده بر اساس تصویر زمینه فعلی سیستم</string>
     <string name="about_app_desc">راه حل روت کرنل فقط با یک ایمیج جدا از کرنل،قابلیت نصب ماژول سیستم و قلاب کردن توابع کرنل را ارئه می دهد.</string>

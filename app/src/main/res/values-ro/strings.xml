@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">APatch</string>
+    <string name="app_name" translatable="false">yapatch</string>
     <string name="home">Acasă</string>
     <string name="patch_warnning">Instalarea implică riscuri. Asigură-te că datele tale sunt salvate.</string>
     <string name="kernel_patch">KernelPatch</string>
@@ -12,7 +12,7 @@
     <string name="reboot_download">Repornește la Download</string>
     <string name="reboot_edl">Repornește la EDL</string>
     <string name="about">Despre</string>
-    <string name="home_learn_apatch">Invata APatch</string>
+    <string name="home_learn_yapatch">Invata yapatch</string>
     <string name="about_source_code">Vezi codul sursă la %1$s<br/> Alătură-te canalului nostru %2$s <p/>Devin-o membrul grupului %3$s</string>
     <string name="send_log">Trimite log-uri</string>
     <string name="clear_super_key">Șterge cheia</string>
@@ -26,12 +26,12 @@
     <string name="home_installing">Instalare</string>
     <string name="home_need_update">Versiune nouă disponibilă</string>
     <string name="kpatch_version">Versiune: %s</string>
-    <string name="apatch_version">Versiune:
+    <string name="yapatch_version">Versiune:
 \n%s</string>
-    <string name="apatch_version_update">Versiune:
+    <string name="yapatch_version_update">Versiune:
 \n%s -&gt; %s</string>
     <string name="home_su_path">Executable su</string>
-    <string name="home_apatch_version">Versiune APatch</string>
+    <string name="home_yapatch_version">Versiune yapatch</string>
     <string name="home_auth_key_title">Introdu Superkey</string>
     <string name="home_auth_key_desc">Pornește după certificare</string>
     <string name="home_ap_cando_install">Instalează</string>
@@ -58,7 +58,7 @@
     <string name="su_title">Super-utilizator</string>
     <string name="su_selinux_via_hook">ocolire prin hook</string>
     <string name="su_pkg_excluded_setting_title">Exclude Modificarile</string>
-    <string name="su_pkg_excluded_setting_summary">Activarea acestei opțiuni va permite APatch să restaureze orice fișiere modificate de către modulele pentru această aplicație.</string>
+    <string name="su_pkg_excluded_setting_summary">Activarea acestei opțiuni va permite yapatch să restaureze orice fișiere modificate de către modulele pentru această aplicație.</string>
     <string name="su_show_system_apps">Arată aplicațiile de sistem</string>
     <string name="su_hide_system_apps">Ascunde aplicațiile de sistem</string>
     <string name="su_refresh">Reîmprospătează</string>
@@ -82,7 +82,7 @@
     <string name="apm_update">Actualizează</string>
     <string name="apm_downloading">Descărcarea modulului \"%s\"…</string>
     <string name="apm_start_downloading">Începe descărcarea %s</string>
-    <string name="home_click_to_learn_apatch">Afla despre funcționalitațile din APatch și cum să le folosești</string>
+    <string name="home_click_to_learn_yapatch">Afla despre funcționalitațile din yapatch și cum să le folosești</string>
     <string name="safe_mode">Mod sigur</string>
     <string name="super_key">SuperKey</string>
     <string name="home_manager_version">Versiunea de manager</string>
@@ -133,12 +133,12 @@
     <string name="purple_theme">Mov</string>
     <string name="red_theme">Roșu</string>
     <string name="sakura_theme">Sakura</string>
-    <string name="hide_apatch_manager">Ascunde APatch Manager</string>
-    <string name="hide_apatch_manager_summary">Instalați o nouă aplicație de proxy cu un ID aleatoriu și o etichetă personalizată a aplicației</string>
+    <string name="hide_yapatch_manager">Ascunde yapatch Manager</string>
+    <string name="hide_yapatch_manager_summary">Instalați o nouă aplicație de proxy cu un ID aleatoriu și o etichetă personalizată a aplicației</string>
     <string name="enable_web_debugging_summary">Poate fi folosit pentru a depana WebUI. Vă rugăm să activați numai când aveți nevoie.</string>
     <string name="settings_donot_store_superkey">Nu stocați Cheia Super local</string>
     <string name="settings_donot_store_superkey_summary">Autentificați Cheia Super de fiecare dată când managerul pornește</string>
-    <string name="home_new_apatch_found">Versiune noua disponibila: %s, apasă pentru a actualiza.</string>
+    <string name="home_new_yapatch_found">Versiune noua disponibila: %s, apasă pentru a actualiza.</string>
     <string name="mode_select_page_patch_and_install">Aplică Modificarea și instalează</string>
     <string name="mode_select_page_select_file">Selectați o imagine de pornire pentru modificare</string>
     <string name="mode_select_page_install_inactive_slot">Instalați în slot inactiv (după OTA)</string>
@@ -166,7 +166,7 @@
     <string name="orange_theme">Portocaliu</string>
     <string name="pink_theme">Roz</string>
     <string name="apm_webui_open">Deschis</string>
-    <string name="home_dialog_auth_fail_content">Nu se poate autentifica Cheia Super, prin urmare APatch nu poate funcționa corect.\nAici sunt câteva motive posibile pentru eșecul autentificării:\n1. Nu ați modificat fișierul boot.img utilizând KernelPatch.\n2. Imaginea de pornire boot.img nu a fost integrată.\n3. Cheia Super este greșită sau conține caractere speciale.\n4. Dispozitivul dvs. nu acceptă APatch și KernelPatch.\n\nVă rugăm să verificați și să încercați din nou. Dacă există încă probleme, puteți oricând să puneți întrebări pe pagina de probleme a repozitorului oficial.</string>
+    <string name="home_dialog_auth_fail_content">Nu se poate autentifica Cheia Super, prin urmare yapatch nu poate funcționa corect.\nAici sunt câteva motive posibile pentru eșecul autentificării:\n1. Nu ați modificat fișierul boot.img utilizând KernelPatch.\n2. Imaginea de pornire boot.img nu a fost integrată.\n3. Cheia Super este greșită sau conține caractere speciale.\n4. Dispozitivul dvs. nu acceptă yapatch și KernelPatch.\n\nVă rugăm să verificați și să încercați din nou. Dacă există încă probleme, puteți oricând să puneți întrebări pe pagina de probleme a repozitorului oficial.</string>
     <string name="settings_use_system_color_theme_summary">Utilizați o temă de culoare generată de sistem bazat pe fundalul actual</string>
     <string name="home_device_info">Dispozitiv</string>
     <string name="kpm_add_kpm">Adaugă KPM</string>
@@ -191,9 +191,9 @@
     <string name="home_system_version">Versiune de sistem</string>
     <string name="home_kpatch_version">Versiune KernelPatch</string>
     <string name="kpm_control">Verifica</string>
-    <string name="hide_apatch_dialog_new_manager_name">Nume nou manager</string>
-    <string name="hide_apatch_dialog_summary">Va fi folosit ca noua etichetă a aplicației afișată în launcher</string>
-    <string name="hide_apatch_manager_failure">Nu s-a ascuns, vă rugăm să raportați eroarea!</string>
+    <string name="hide_yapatch_dialog_new_manager_name">Nume nou manager</string>
+    <string name="hide_yapatch_dialog_summary">Va fi folosit ca noua etichetă a aplicației afișată în launcher</string>
+    <string name="hide_yapatch_manager_failure">Nu s-a ascuns, vă rugăm să raportați eroarea!</string>
     <string name="home_more_menu_feedback_or_suggestion">Feedback sau sugestie</string>
     <string name="about_telegram_channel">Canalul Telegram</string>
     <string name="home_more_menu_about">Despre</string>

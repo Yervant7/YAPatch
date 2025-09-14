@@ -1,5 +1,5 @@
 [versions]
-agp = "8.12.0"
+agp = "8.13.0"
 kotlin = "2.2.0"
 ksp = "2.2.0-2.0.2"
 compose-bom = "2025.07.00"
@@ -64,3 +64,4 @@ timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" 
 ini4j = { group = "org.ini4j", name = "ini4j", version = "0.5.4" }
 
 cxx = { module = "org.lsposed.libcxx:libcxx", version = "28.1.13356709" }
+google-material = { group = "com.google.android.material", name = "material", version = "1.10.0" }

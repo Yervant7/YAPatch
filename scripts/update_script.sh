@@ -1,5 +1,5 @@
 ######################
-# APatch Empty script
+# YAPatch Empty script
 # Check update-binary
 ######################
 
