@@ -7,19 +7,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import me.yervant.yapatch.APApplication
 import me.yervant.yapatch.Natives
+import me.yervant.yapatch.apApp
 import me.yervant.yapatch.util.getRootShell
 import java.io.File
+import java.io.IOException
 
 class HideViewModel : ViewModel() {
     companion object {
         private const val TAG = "HideViewModel"
-        
+
         // Uname field constants
         const val UNAME_SYSNAME = 0x1001
         const val UNAME_NODENAME = 0x1002
@@ -27,10 +27,14 @@ class HideViewModel : ViewModel() {
         const val UNAME_VERSION = 0x1004
         const val UNAME_MACHINE = 0x1005
         const val UNAME_DOMAINNAME = 0x1006
-        
-        // Config file paths
-        const val HIDE_FILES_CONFIG = "${APApplication.YAPatch_FOLDER}hide_files"
-        const val UNAME_CONFIG = "${APApplication.YAPatch_FOLDER}uname_config"
+
+        private val APP_FILES_DIR: File = apApp.filesDir
+        val UNAME_CONFIG_FILE = File(APP_FILES_DIR, ".uname_config")
+        val HIDE_FILES_CONFIG_FILE = File(APP_FILES_DIR, ".hide_files")
+
+        private fun escapeShellArg(arg: String): String {
+            return arg.replace("'", """'\''""")
+        }
     }
 
     // Hide files
@@ -49,7 +53,13 @@ class HideViewModel : ViewModel() {
     var errorMessage by mutableStateOf<String?>(null)
 
     init {
-        loadConfig()
+        if (!APP_FILES_DIR.exists()) {
+            if (APP_FILES_DIR.mkdirs()) {
+                Log.i(TAG, "Application files directory created: ${APP_FILES_DIR.absolutePath}")
+            } else {
+                Log.e(TAG, "Failed to create application files directory: ${APP_FILES_DIR.absolutePath}")
+            }
+        }
     }
 
     fun loadConfig() {
@@ -58,37 +68,20 @@ class HideViewModel : ViewModel() {
             errorMessage = null
 
             try {
-                val hideFilesData = withContext(Dispatchers.IO) {
-                    loadHideFilesConfigData()
-                }
-                withContext(Dispatchers.Main) {
-                    hideFiles.clear()
-                    hideFiles.addAll(hideFilesData)
+                val (hideFilesData, unameData) = withContext(Dispatchers.IO) {
+                    loadHideFilesConfigData() to loadUnameConfigData()
                 }
 
-                // Carregar configuração uname
-                val unameData = withContext(Dispatchers.IO) {
-                    loadUnameConfigData()
-                }
-                withContext(Dispatchers.Main) {
-                    sysname = unameData.sysname
-                    nodename = unameData.nodename
-                    release = unameData.release
-                    version = unameData.version
-                    machine = unameData.machine
-                    domainname = unameData.domainname
-                }
+                hideFiles.clear()
+                hideFiles.addAll(hideFilesData)
+                sysname = unameData.sysname
+                nodename = unameData.nodename
+                release = unameData.release
+                version = unameData.version
+                machine = unameData.machine
+                domainname = unameData.domainname
 
-                withContext(Dispatchers.IO) {
-                    Natives.androidSpoofUnameSet(UNAME_SYSNAME, unameData.sysname)
-                    Natives.androidSpoofUnameSet(UNAME_NODENAME, unameData.nodename)
-                    Natives.androidSpoofUnameSet(UNAME_RELEASE, unameData.release)
-                    Natives.androidSpoofUnameSet(UNAME_VERSION, unameData.version)
-                    Natives.androidSpoofUnameSet(UNAME_MACHINE, unameData.machine)
-                    Natives.androidSpoofUnameSet(UNAME_DOMAINNAME, unameData.domainname)
-                }
-
-                Log.d(TAG, "Configuration loaded successfully")
+                Log.d(TAG, "Configuration loaded and state updated.")
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to load configuration", e)
                 errorMessage = "Failed to load configuration: ${e.message}"
@@ -99,17 +92,37 @@ class HideViewModel : ViewModel() {
     }
 
     private fun loadHideFilesConfigData(): List<String> {
-        return try {
-            val shell = getRootShell()
-            val result = shell.newJob().add("cat $HIDE_FILES_CONFIG").exec()
-            if (result.isSuccess) {
-                result.out.filter { it.isNotBlank() }.map { it.trim() }
-            } else {
-                emptyList()
+        val file = HIDE_FILES_CONFIG_FILE
+        try {
+            if (!file.exists()) {
+                try {
+                    if (file.createNewFile()) {
+                        Log.i(TAG, "Created new hide_files config: ${file.absolutePath}")
+                    } else {
+                        Log.w(TAG, "createNewFile for hide_files config returned false, though file reported as not existing initially.")
+                    }
+                    return emptyList()
+                } catch (e: IOException) {
+                    Log.e(TAG, "IOException creating hide_files config '${file.absolutePath}': ${e.message}", e)
+                    return emptyList() // Failed to create
+                }
             }
+
+            if (!file.canRead()) {
+                Log.e(TAG, "Cannot read hide_files config (check permissions): ${file.absolutePath}")
+                return emptyList()
+            }
+
+            val hideFilesL = mutableListOf<String>()
+            file.forEachLine { line ->
+                if (line.isNotBlank()) {
+                    hideFilesL.add(line.trim())
+                }
+            }
+            return hideFilesL
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to load hide files config", e)
-            emptyList()
+            Log.e(TAG, "Exception reading hide_files config '${file.absolutePath}': ${e.message}", e)
+            return emptyList()
         }
     }
 
@@ -123,12 +136,30 @@ class HideViewModel : ViewModel() {
     )
 
     private fun loadUnameConfigData(): UnameConfig {
-        return try {
-            val shell = getRootShell()
-            val result = shell.newJob().add("cat $UNAME_CONFIG").exec()
+        val file = UNAME_CONFIG_FILE
+        try {
+            if (!file.exists()) {
+                try {
+                    if (file.createNewFile()) {
+                        Log.i(TAG, "Created new uname_config: ${file.absolutePath}")
+                    } else {
+                        Log.w(TAG, "createNewFile for uname_config returned false, though file reported as not existing initially.")
+                    }
+                    return UnameConfig()
+                } catch (e: IOException) {
+                    Log.e(TAG, "IOException creating uname_config '${file.absolutePath}': ${e.message}", e)
+                    return UnameConfig()
+                }
+            }
+
+            if (!file.canRead()) {
+                Log.e(TAG, "Cannot read uname_config (check permissions): ${file.absolutePath}")
+                return UnameConfig()
+            }
+
             var config = UnameConfig()
-            if (result.isSuccess) {
-                result.out.filter { it.isNotBlank() && it.contains("=") }.forEach { line ->
+            file.forEachLine { line ->
+                if (line.isNotBlank() && line.contains("=")) {
                     val parts = line.split("=", limit = 2)
                     if (parts.size == 2) {
                         val key = parts[0].trim()
@@ -145,10 +176,10 @@ class HideViewModel : ViewModel() {
                     }
                 }
             }
-            config
+            return config
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to load uname config from file", e)
-            UnameConfig()
+            Log.e(TAG, "Exception reading uname_config '${file.absolutePath}': ${e.message}", e)
+            return UnameConfig()
         }
     }
 
@@ -160,7 +191,9 @@ class HideViewModel : ViewModel() {
                     val result = Natives.androidHideFilesAdd(fileToAdd)
                     if (result == 0) {
                         withContext(Dispatchers.Main) {
-                            hideFiles.add(fileToAdd)
+                            if (!hideFiles.contains(fileToAdd)) {
+                                hideFiles.add(fileToAdd)
+                            }
                             newHideFile = ""
                         }
                         saveHideFilesConfig()
@@ -205,24 +238,36 @@ class HideViewModel : ViewModel() {
             }
         }
     }
-    
+
     private fun saveHideFilesConfig() {
+        val filePath = HIDE_FILES_CONFIG_FILE.absolutePath
+        val appUid = apApp.applicationInfo.uid
         try {
             val shell = getRootShell()
-            // Create the config file with all hide files
             val commands = mutableListOf<String>()
-            commands.add("echo -n > $HIDE_FILES_CONFIG") // Clear the file
-            hideFiles.forEach { file ->
-                commands.add("echo '$file' >> $HIDE_FILES_CONFIG")
+
+            if (hideFiles.isEmpty()) {
+                commands.add("echo -n > '${escapeShellArg(filePath)}'")
+            } else {
+                commands.add("echo '${escapeShellArg(hideFiles.first())}' > '${escapeShellArg(filePath)}'")
+                hideFiles.drop(1).forEach { fileEntry ->
+                    commands.add("echo '${escapeShellArg(fileEntry)}' >> '${escapeShellArg(filePath)}'")
+                }
             }
+
+            commands.add("chown $appUid:$appUid '${escapeShellArg(filePath)}'")
+            commands.add("chmod 600 '${escapeShellArg(filePath)}'")
+
             shell.newJob().add(*commands.toTypedArray()).exec()
-            Log.d(TAG, "Hide files config saved")
+            Log.d(TAG, "Hide files config saved to $filePath")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to save hide files config", e)
-            errorMessage = "Failed to save hide files config: ${e.message}"
+            Log.e(TAG, "Failed to save hide files config to $filePath", e)
+            viewModelScope.launch(Dispatchers.Main) {
+                errorMessage = "Failed to save hide files config: ${e.message}"
+            }
         }
     }
-    
+
     fun saveUnameField(field: Int, value: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -258,8 +303,19 @@ class HideViewModel : ViewModel() {
     fun clearUnameField(field: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                val valueToRemove = when (field) {
+                    UNAME_SYSNAME -> sysname
+                    UNAME_NODENAME -> nodename
+                    UNAME_RELEASE -> release
+                    UNAME_VERSION -> version
+                    UNAME_MACHINE -> machine
+                    UNAME_DOMAINNAME -> domainname
+                    else -> ""
+                }
+
                 val resultCode = Natives.androidSpoofUnameRemove(field)
                 if (resultCode == 0) {
+                    val updateFile = valueToRemove.isNotEmpty()
                     withContext(Dispatchers.Main) {
                         when (field) {
                             UNAME_SYSNAME -> sysname = ""
@@ -270,7 +326,9 @@ class HideViewModel : ViewModel() {
                             UNAME_DOMAINNAME -> domainname = ""
                         }
                     }
-                    saveUnameConfigToFile()
+                    if (updateFile) {
+                        saveUnameConfigToFile()
+                    }
                     Log.d(TAG, "Uname field cleared successfully")
                 } else {
                     withContext(Dispatchers.Main) {
@@ -286,27 +344,29 @@ class HideViewModel : ViewModel() {
             }
         }
     }
-    
+
     private fun saveUnameConfigToFile() {
+        val filePath = UNAME_CONFIG_FILE.absolutePath
+        val appUid = apApp.applicationInfo.uid
         try {
             val shell = getRootShell()
-            // Create the uname config file
-            val configContent = """
-                sysname=$sysname
-                nodename=$nodename
-                release=$release
-                version=$version
-                machine=$machine
-                domainname=$domainname
-            """.trimIndent()
-            
             val commands = arrayOf(
-                "echo '$configContent' > $UNAME_CONFIG"
+                "echo 'sysname=${escapeShellArg(sysname)}' > '${escapeShellArg(filePath)}'",
+                "echo 'nodename=${escapeShellArg(nodename)}' >> '${escapeShellArg(filePath)}'",
+                "echo 'release=${escapeShellArg(release)}' >> '${escapeShellArg(filePath)}'",
+                "echo 'version=${escapeShellArg(version)}' >> '${escapeShellArg(filePath)}'",
+                "echo 'machine=${escapeShellArg(machine)}' >> '${escapeShellArg(filePath)}'",
+                "echo 'domainname=${escapeShellArg(domainname)}' >> '${escapeShellArg(filePath)}'",
+                "chown $appUid:$appUid '${escapeShellArg(filePath)}'",
+                "chmod 600 '${escapeShellArg(filePath)}'"
             )
             shell.newJob().add(*commands).exec()
-            Log.d(TAG, "Uname config saved to file")
+            Log.d(TAG, "Uname config saved to file $filePath")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to save uname config to file", e)
+            Log.e(TAG, "Failed to save uname config to file $filePath", e)
+            viewModelScope.launch(Dispatchers.Main) {
+                errorMessage = "Failed to save uname config: ${e.message}"
+            }
         }
     }
 

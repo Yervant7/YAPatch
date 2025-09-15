@@ -53,8 +53,6 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler {
         private const val APD_LINK_PATH = YAPatch_BIN_FOLDER + "apd"
         const val PACKAGE_CONFIG_FILE = YAPatch_FOLDER + "package_config"
         const val SU_PATH_FILE = YAPatch_FOLDER + "su_path"
-        const val HIDE_FILES_CONFIG = YAPatch_FOLDER + "hide_files"
-        const val UNAME_CONFIG = YAPatch_FOLDER + "uname_config"
         const val SAFEMODE_FILE = "/dev/.safemode"
         private const val NEED_REBOOT_FILE = "/dev/.need_reboot"
         const val GLOBAL_NAMESPACE_FILE = "/data/adb/.global_namespace_enable"
@@ -147,8 +145,6 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler {
 
                 "touch $PACKAGE_CONFIG_FILE",
                 "touch $SU_PATH_FILE",
-                "touch $HIDE_FILES_CONFIG",
-                "touch $UNAME_CONFIG",
                 "[ -s $SU_PATH_FILE ] || echo $LEGACY_SU_PATH > $SU_PATH_FILE",
                 "echo ${Version.getManagerVersion().second} > $YAPatch_VERSION_PATH",
                 "restorecon -R $YAPatch_FOLDER",

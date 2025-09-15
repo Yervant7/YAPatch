@@ -29,6 +29,10 @@ fun HideScreen() {
     val viewModel: HideViewModel = viewModel()
     val snackbarHostState = remember { SnackbarHostState() }
 
+    LaunchedEffect(Unit) {
+        viewModel.loadConfig()
+    }
+
     LaunchedEffect(viewModel.errorMessage) {
         viewModel.errorMessage?.let { message ->
             snackbarHostState.showSnackbar(message)
