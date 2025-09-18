@@ -42,10 +42,6 @@ It is critical to use robust keys and safeguard them from exposure to maintain t
 For usage, please refer to [our official documentation](https://apatch.dev).  
 It's worth noting that the documentation is currently not quite complete, and the content may change at any time.  
 
-### More Information
-
-- [Documents](docs/)
-
 ## Credits
 
 - [KernelPatch](https://github.com/bmax121/KernelPatch/): The core.
