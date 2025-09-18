@@ -2,6 +2,7 @@ package me.yervant.yapatch
 
 import android.app.Application
 import android.content.Intent
+import android.os.Process
 import android.content.SharedPreferences
 import android.os.Build
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.core.content.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.topjohnwu.superuser.CallbackList
+import me.yervant.yapatch.Natives.grantSu
 import me.yervant.yapatch.ui.CrashHandleActivity
 import me.yervant.yapatch.util.YAPatchCli
 import me.yervant.yapatch.util.YAPatchKeyHelper
@@ -256,6 +258,10 @@ class APApplication : Application(), Thread.UncaughtExceptionHandler {
         sharedPreferences = getSharedPreferences(SP_NAME, MODE_PRIVATE)
         YAPatchKeyHelper.setSharedPreferences(sharedPreferences)
         superKey = YAPatchKeyHelper.readSPSuperKey()
+
+        if (superKey.isNotEmpty()) {
+            grantSu(Process.myUid(), Process.myUid(), DEFAULT_SCONTEXT)
+        }
 
         okhttpClient =
             OkHttpClient.Builder().cache(Cache(File(cacheDir, "okhttp"), 10 * 1024 * 1024))
