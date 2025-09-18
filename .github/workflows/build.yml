@@ -89,6 +89,7 @@ jobs:
           path: app/build/outputs/apk/release/app-release.apk
 
       - name: Release apk
+        if: github.event_name == 'workflow_dispatch'
         continue-on-error: true
         uses: ncipollo/release-action@v1
         with:
