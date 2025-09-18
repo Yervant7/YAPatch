@@ -213,4 +213,5 @@
     <string name="settings_lite_mode_mode_summary">APModuleの機能は、有効化された後に障害を示すことがあるが、場合によっては検出を効果的に回避することができる。再起動が必要です。</string>
     <string name="settings_force_overlayfs_mode">OverlayFSの使用を強制する</string>
     <string name="settings_force_overlayfs_mode_summary">カーネルのサポートが利用可能な場合、Magic Mountの代わりにOverlayFSを使用してAPModuleをマウントする。再起動が必要です。</string>
+    <string name="back">戻る</string>
 </resources>

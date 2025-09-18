@@ -164,18 +164,6 @@ object Natives {
     }
 
     @FastNative
-    private external fun nativeAndroidHideFilesAdd(superKey: String, filename: String): Int
-    fun androidHideFilesAdd(filename: String): Int {
-        return nativeAndroidHideFilesAdd(APApplication.superKey, filename)
-    }
-
-    @FastNative
-    private external fun nativeAndroidHideFilesRemove(superKey: String, filename: String): Int
-    fun androidHideFilesRemove(filename: String): Int {
-        return nativeAndroidHideFilesRemove(APApplication.superKey, filename)
-    }
-
-    @FastNative
     private external fun nativeAndroidSpoofUnameSet(superKey: String, field: Int, value: String): Int
     fun androidSpoofUnameSet(field: Int, value: String): Int {
         return nativeAndroidSpoofUnameSet(APApplication.superKey, field, value)

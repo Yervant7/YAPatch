@@ -193,14 +193,6 @@ Por favor, verifique e tente novamente. Se ainda houver problemas, você pode fa
     <string name="settings_use_system_color_theme">Tema de cores do sistema</string>
     <string name="settings_use_system_color_theme_summary">Use um tema de cores gerado pelo sistema com base no plano de fundo atual</string>
     <string name="hide_config_title">Ocultar</string>
-    <!-- Hide Files Section -->
-    <string name="hide_files_title">Ocultar Arquivos</string>
-    <string name="hide_files_desc">Adicionar arquivos ou diretórios que devem ser ocultados dos aplicativos</string>
-    <string name="hide_files_input_label">Caminho do arquivo ou diretório</string>
-    <!-- Spoof Stat Files Section -->
-    <string name="spoof_stat_title">Falsificar Status de Arquivo</string>
-    <string name="spoof_stat_desc">Adicionar arquivos cujas informações de status devem ser falsificadas</string>
-    <string name="spoof_stat_input_label">Caminho do arquivo</string>
     <!-- Spoof Uname Section -->
     <string name="spoof_uname_title">Falsificar Informações do Sistema</string>
     <string name="spoof_uname_desc">Modificar informações do sistema relatadas pela chamada de sistema uname</string>
@@ -209,8 +201,6 @@ Por favor, verifique e tente novamente. Se ainda houver problemas, você pode fa
     <string name="hidden_config_desc">Esta seção permite configurar recursos avançados de ocultação e falsificação no nível do sistema. Essas configurações podem ajudar a contornar mecanismos de detecção em aplicativos que verificam a presença de root ou arquivos de sistema modificados.</string>
     <string name="hidden_config_note">Nota: As alterações entram em vigor imediatamente após salvar. Configurações incorretas podem causar instabilidade no sistema.
 As alterações afetam apenas o uid da lista de exclusão</string>
-    <string name="hide_files_example">Exemplo: TWRP, addon.d, lineage</string>
-    <string name="currently_hidden_files">Arquivos/diretórios atualmente ocultos:</string>
     <string name="clear_sysname">Limpar sysname</string>
     <string name="clear_nodename">Limpar nodename</string>
     <string name="clear_release">Limpar release</string>

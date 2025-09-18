@@ -213,4 +213,5 @@
     <string name="settings_lite_mode_mode_summary">Các hàm APModule có thể gặp lỗi sau khi được bật, nhưng trong một số trường hợp, chúng vẫn có thể tránh bị phát hiện. Cần khởi động lại.</string>
     <string name="settings_force_overlayfs_mode">Buộc sử dụng OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Sử dụng OverlayFS để gắn APModules thay vì Magic Mount khi có hỗ trợ kernel. Cần khởi động lại.</string>
+    <string name="back">Quay lại</string>
 </resources>

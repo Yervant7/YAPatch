@@ -1,15 +1,12 @@
 package me.yervant.yapatch.ui.screen
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,15 +15,16 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import me.yervant.yapatch.ui.component.LoadingDialog
-import me.yervant.yapatch.ui.viewmodel.HideViewModel
+import me.yervant.yapatch.ui.viewmodel.UnameViewModel
 import me.yervant.yapatch.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Destination<RootGraph>
 @Composable
-fun HideScreen() {
-    val viewModel: HideViewModel = viewModel()
+fun UnameScreen(navigator: DestinationsNavigator) {
+    val viewModel: UnameViewModel = viewModel()
     val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(Unit) {
@@ -43,7 +41,15 @@ fun HideScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.hide_config_title)) }
+                title = { Text(stringResource(R.string.hide_config_title)) },
+                navigationIcon = {
+                    IconButton(onClick = { navigator.navigateUp() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.back)
+                        )
+                    }
+                }
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
@@ -61,7 +67,6 @@ fun HideScreen() {
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             InformationSection()
-            HideFilesSection(viewModel)
             SpoofUnameSection(viewModel)
         }
     }
@@ -98,88 +103,9 @@ fun InformationSection() {
     }
 }
 
-@Composable
-fun HideFilesSection(viewModel: HideViewModel) {
-    Card(
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.hide_files_title),
-                style = MaterialTheme.typography.titleMedium
-            )
-            
-            Text(
-                text = stringResource(R.string.hide_files_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = stringResource(R.string.hide_files_example),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.primary
-            )
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                OutlinedTextField(
-                    value = viewModel.newHideFile,
-                    onValueChange = { viewModel.newHideFile = it },
-                    label = { Text(stringResource(R.string.hide_files_input_label)) },
-                    modifier = Modifier.weight(1f)
-                )
-                
-                IconButton(onClick = { viewModel.addHideFile() }) {
-                    Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add))
-                }
-            }
-            
-            if (viewModel.hideFiles.isNotEmpty()) {
-                HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
-
-                Text(
-                    text = stringResource(R.string.currently_hidden_files),
-                    style = MaterialTheme.typography.labelMedium
-                )
-
-                LazyColumn(
-                    modifier = Modifier.heightIn(max = 200.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(viewModel.hideFiles) { file ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(file)
-                            IconButton(onClick = { viewModel.removeHideFile(file) }) {
-                                Icon(
-                                    Icons.Default.Delete,
-                                    contentDescription = stringResource(R.string.remove),
-                                    tint = MaterialTheme.colorScheme.error
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SpoofUnameSection(viewModel: HideViewModel) {
+fun SpoofUnameSection(viewModel: UnameViewModel) {
     
     Card(
         modifier = Modifier.fillMaxWidth()
@@ -220,13 +146,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_SYSNAME, viewModel.sysname) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_SYSNAME, viewModel.sysname) },
                     enabled = viewModel.sysname.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_SYSNAME) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_SYSNAME) },
                     enabled = viewModel.sysname.isNotBlank()
                 ) {
                     Icon(
@@ -255,13 +181,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_NODENAME, viewModel.nodename) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_NODENAME, viewModel.nodename) },
                     enabled = viewModel.nodename.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_NODENAME) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_NODENAME) },
                     enabled = viewModel.nodename.isNotBlank()
                 ) {
                     Icon(
@@ -290,13 +216,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_RELEASE, viewModel.release) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_RELEASE, viewModel.release) },
                     enabled = viewModel.release.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_RELEASE) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_RELEASE) },
                     enabled = viewModel.release.isNotBlank()
                 ) {
                     Icon(
@@ -325,13 +251,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_VERSION, viewModel.version) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_VERSION, viewModel.version) },
                     enabled = viewModel.version.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_VERSION) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_VERSION) },
                     enabled = viewModel.version.isNotBlank()
                 ) {
                     Icon(
@@ -360,13 +286,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_MACHINE, viewModel.machine) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_MACHINE, viewModel.machine) },
                     enabled = viewModel.machine.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_MACHINE) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_MACHINE) },
                     enabled = viewModel.machine.isNotBlank()
                 ) {
                     Icon(
@@ -395,13 +321,13 @@ fun SpoofUnameSection(viewModel: HideViewModel) {
                     modifier = Modifier.weight(1f)
                 )
                 Button(
-                    onClick = { viewModel.saveUnameField(HideViewModel.UNAME_DOMAINNAME, viewModel.domainname) },
+                    onClick = { viewModel.saveUnameField(UnameViewModel.UNAME_DOMAINNAME, viewModel.domainname) },
                     enabled = viewModel.domainname.isNotBlank()
                 ) {
                     Text(stringResource(R.string.save_button))
                 }
                 IconButton(
-                    onClick = { viewModel.clearUnameField(HideViewModel.UNAME_DOMAINNAME) },
+                    onClick = { viewModel.clearUnameField(UnameViewModel.UNAME_DOMAINNAME) },
                     enabled = viewModel.domainname.isNotBlank()
                 ) {
                     Icon(

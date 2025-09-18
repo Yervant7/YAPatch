@@ -12,14 +12,6 @@
 #include "apjni.hpp"
 #include "supercall.h"
 
-jint nativeAndroidHideFilesAdd(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr) {
-    return android_hide_files_add(env, /* this */ nullptr, super_key_jstr, filename_jstr);
-}
-
-jint nativeAndroidHideFilesRemove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr) {
-    return android_hide_files_remove(env, /* this */ nullptr, super_key_jstr, filename_jstr);
-}
-
 jint nativeAndroidSpoofUnameSet(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field, jstring value_jstr) {
     return android_spoof_uname_set(env, /* this */ nullptr, super_key_jstr, field, value_jstr);
 }
@@ -299,8 +291,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void * /*reserved*/) {
         {"nativeRevokeSu", "(Ljava/lang/String;I)J", reinterpret_cast<void *>(&nativeRevokeSu)},
         {"nativeSuPath", "(Ljava/lang/String;)Ljava/lang/String;", reinterpret_cast<void *>(&nativeSuPath)},
         {"nativeResetSuPath", "(Ljava/lang/String;Ljava/lang/String;)Z", reinterpret_cast<void *>(&nativeResetSuPath)},
-        {"nativeAndroidHideFilesAdd", "(Ljava/lang/String;Ljava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidHideFilesAdd)},
-        {"nativeAndroidHideFilesRemove", "(Ljava/lang/String;Ljava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidHideFilesRemove)},
         {"nativeAndroidSpoofUnameSet", "(Ljava/lang/String;ILjava/lang/String;)I", reinterpret_cast<void *>(&nativeAndroidSpoofUnameSet)},
         {"nativeAndroidSpoofUnameRemove", "(Ljava/lang/String;I)I", reinterpret_cast<void *>(&nativeAndroidSpoofUnameRemove)},
     };

@@ -213,4 +213,5 @@
     <string name="settings_lite_mode_mode_summary">APModul-Funktionen können nach ihrer Aktivierung Fehler aufweisen, aber in einigen Fällen können sie immer noch effektiv die Erkennung vermeiden. Neustart erforderlich.</string>
     <string name="settings_force_overlayfs_mode">Verwendung von OverlayFS erzwingen</string>
     <string name="settings_force_overlayfs_mode_summary">Verwende, wenn Kernel-Unterstützung verfügbar ist, OverlayFS zum Einhängen von APModulen anstelle von Magic Mount. Neustart erforderlich.</string>
+    <string name="back">Zurück</string>
 </resources>

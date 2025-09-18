@@ -3,11 +3,6 @@ package me.yervant.yapatch.ui.screen
 import android.os.Build
 import android.system.Os
 import androidx.annotation.StringRes
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -62,7 +57,6 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -85,17 +79,14 @@ import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.generated.destinations.AboutScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.InstallModeSelectScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.PatchesDestination
+import com.ramcosta.composedestinations.generated.destinations.UnameScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import me.yervant.yapatch.APApplication
 import me.yervant.yapatch.Natives
 import me.yervant.yapatch.R
 import me.yervant.yapatch.apApp
 import me.yervant.yapatch.ui.component.ProvideMenuShape
-import me.yervant.yapatch.ui.component.rememberConfirmDialog
 import me.yervant.yapatch.ui.viewmodel.PatchesViewModel
-import me.yervant.yapatch.util.LatestVersionInfo
 import me.yervant.yapatch.util.Version
 import me.yervant.yapatch.util.Version.getManagerVersion
 import me.yervant.yapatch.util.getSELinuxStatus
@@ -134,7 +125,7 @@ fun HomeScreen(navigator: DestinationsNavigator) {
             if (kpState != APApplication.State.UNKNOWN_STATE && apState != APApplication.State.ANDROIDPATCH_INSTALLED) {
                 AStatusCard(apState)
             }
-            InfoCard(kpState, apState)
+            InfoCard(kpState, apState, navigator)
             Spacer(Modifier)
         }
     }
@@ -844,7 +835,7 @@ private fun getDeviceInfo(): String {
 }
 
 @Composable
-private fun InfoCard(kpState: APApplication.State, apState: APApplication.State) {
+private fun InfoCard(kpState: APApplication.State, apState: APApplication.State, navigator: DestinationsNavigator) {
     ElevatedCard {
         Column(
             modifier = Modifier
@@ -855,10 +846,18 @@ private fun InfoCard(kpState: APApplication.State, apState: APApplication.State)
             val uname = Os.uname()
 
             @Composable
-            fun InfoCardItem(label: String, content: String) {
+            fun InfoCardItem(label: String, content: String, onClick: (() -> Unit)? = null) {
                 contents.appendLine(label).appendLine(content).appendLine()
-                Text(text = label, style = MaterialTheme.typography.bodyLarge)
-                Text(text = content, style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    text = label, 
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = onClick?.let { Modifier.clickable { it() } } ?: Modifier
+                )
+                Text(
+                    text = content, 
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = onClick?.let { Modifier.clickable { it() } } ?: Modifier
+                )
             }
 
             if (kpState != APApplication.State.UNKNOWN_STATE) {
@@ -882,7 +881,9 @@ private fun InfoCard(kpState: APApplication.State, apState: APApplication.State)
             InfoCardItem(stringResource(R.string.home_device_info), getDeviceInfo())
 
             Spacer(Modifier.height(16.dp))
-            InfoCardItem(stringResource(R.string.home_kernel), uname.release)
+            InfoCardItem(stringResource(R.string.home_kernel), uname.release) {
+                navigator.navigate(UnameScreenDestination)
+            }
 
             Spacer(Modifier.height(16.dp))
             InfoCardItem(stringResource(R.string.home_system_version), getSystemVersion())

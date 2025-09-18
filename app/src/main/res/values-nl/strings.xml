@@ -211,4 +211,5 @@
     <string name="settings_lite_mode_mode_summary">APModule-functies kunnen fouten vertonen nadat ze zijn ingeschakeld, maar in sommige gevallen kunnen ze detectie nog steeds effectief vermijden. Opnieuw opstarten is vereist.</string>
     <string name="settings_force_overlayfs_mode">Forceer het gebruik van OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Gebruik OverlayFS om APModules te mounten in plaats van Magic Mount wanneer kernelondersteuning beschikbaar is. Herstarten is vereist.</string>
+    <string name="back">Terug</string>
 </resources>

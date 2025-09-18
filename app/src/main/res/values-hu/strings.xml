@@ -153,4 +153,5 @@
     <string name="patch_mode_install_to_next_slot">Mód:Telepítés inaktív helyre (OTA után)</string>
     <string name="settings_donot_store_superkey">Ne mentse a Szuper kulcsot helyileg</string>
     <string name="enable_web_debugging_summary">Nem használható a WebUI hibakereséséhez. Csak akkor engedélyezze ha szüksége van rá.</string>
+    <string name="back">Vissza</string>
 </resources>

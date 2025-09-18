@@ -206,4 +206,5 @@
     <string name="crash_handle_title">Sovellus kaatui…</string>
     <string name="crash_handle_copy">Kopioi kaatumisloki</string>
     <string name="crash_handle_copied">Kaatumisloki kopioittu leikepöydälle.</string>
+    <string name="back">Takaisin</string>
 </resources>

@@ -213,4 +213,5 @@
     <string name="settings_lite_mode_mode_summary">Les fonctions APModule peuvent présenter des défaillances après avoir été activées, mais dans certains cas, elles peuvent toujours éviter la détection. Redémarrage requis.</string>
     <string name="settings_force_overlayfs_mode">Utilisation forcée de OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Utilisez OverlayFS pour monter APModules au lieu de Magic Mount lorsque le support du noyau est disponible. Redémarrage requis.</string>
+    <string name="back">Retour</string>
 </resources>

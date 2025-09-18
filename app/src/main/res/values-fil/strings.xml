@@ -93,4 +93,5 @@
     <string name="crash_handle_copy">Kopyahin ang log sa pag-crash</string>
     <string name="crash_handle_copied">Nakopya ang log sa pag-crash sa clipboard.</string>
     <string name="clear_super_key">Alisin ang SuperKey</string>
+    <string name="back">Bumalik</string>
 </resources>

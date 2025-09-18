@@ -474,35 +474,6 @@ static inline long __sc_test(const char *key, long a1, long a2, long a3)
     return ret;
 }
 
-jint android_hide_files_add(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr)
-{
-    ensureSuperKeyNonNull(super_key_jstr);
-    if (!filename_jstr) {
-        abort();
-    }
-
-    const auto super_key = JUTFString(env, super_key_jstr);
-    const auto filename = JUTFString(env, filename_jstr);
-
-    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_HIDE_FILE_ADD, (long)filename.get(), 0, 0, 0);
-    return (jint)ret;
-}
-
-// Function to remove a file from hide list
-jint android_hide_files_remove(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jstring filename_jstr)
-{
-    ensureSuperKeyNonNull(super_key_jstr);
-    if (!filename_jstr) {
-        abort();
-    }
-
-    const auto super_key = JUTFString(env, super_key_jstr);
-    const auto filename = JUTFString(env, filename_jstr);
-
-    long ret = supercall(super_key.get(), SUPERCALL_ANDROID_HIDE_FILE_REMOVE, (long)filename.get(), 0, 0, 0);
-    return (jint)ret;
-}
-
 // Function to set uname field
 jint android_spoof_uname_set(JNIEnv *env, jobject /* this */, jstring super_key_jstr, jint field, jstring value_jstr)
 {

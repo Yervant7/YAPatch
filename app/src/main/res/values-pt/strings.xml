@@ -227,20 +227,12 @@ Continuar?</string>
     <string name="on">Ligado</string>
     <string name="off">Desligado</string>
     <string name="hide_config_title">Ocultar</string>
-    <string name="hide_files_title">Ocultar arquivos</string>
-    <string name="hide_files_desc">Adicionar arquivos ou diretórios que devem ser ocultados dos aplicativos</string>
-    <string name="hide_files_input_label">Caminho do arquivo ou diretório</string>
-    <string name="spoof_stat_title">Falsificar estatísticas de arquivos</string>
-    <string name="spoof_stat_desc">Adicionar arquivos cujas informações de estatísticas devem ser falsificadas</string>
-    <string name="spoof_stat_input_label">Caminho do arquivo</string>
     <string name="spoof_uname_title">Falsificar informações do sistema</string>
     <string name="spoof_uname_desc">Modificar as informações do sistema relatadas pela chamada de sistema uname</string>
     <string name="hidden_config_title">Configuração oculta</string>
     <string name="hidden_config_desc">Esta seção permite que você defina recursos avançados de ocultação e falsificação no nível do sistema. Essas configurações podem ajudar a contornar os mecanismos de detecção em aplicativos que verificam a presença de acesso root ou arquivos de sistema modificados.</string>
     <string name="hidden_config_note">Nota: As alterações entram em vigor imediatamente após salvar. Configurações incorretas podem causar instabilidade no sistema.
 As alterações entram em vigor apenas no uid da lista de exclusão</string>
-    <string name="hide_files_example">Exemplo: TWRP, addon.d, lineage</string>
-    <string name="currently_hidden_files">Arquivos/diretórios atualmente ocultos:</string>
     <string name="clear_sysname">Limpar sysname</string>
     <string name="clear_nodename">Limpar nodename</string>
     <string name="clear_release">Limpar release</string>
@@ -267,6 +259,7 @@ As alterações entram em vigor apenas no uid da lista de exclusão</string>
 • version: Versão do kernel
 • machine: Arquitetura de hardware
 • domainname: Nome de domínio NIS/YP</string>
+    <string name="back">Voltar</string>
     <string name="add">Adicionar</string>
     <string name="remove">Remover</string>
     <string name="save">Salvar</string>

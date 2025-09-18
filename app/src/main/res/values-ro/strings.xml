@@ -215,4 +215,5 @@
     <string name="settings_lite_mode_mode_summary">Funcții APModule pot prezenta eșecuri după ce sunt pornite, dar în câteva cazuri ele pot în continuare sa evadeze detecție. Repornire nevoită.</string>
     <string name="settings_force_overlayfs_mode">Forțează utilizarea de OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Utilizați OverlayFS sa montați APModules în loc de Magic Mount când suport de kernel este disponibil. Repornire nevoită.</string>
+    <string name="back">Înapoi</string>
 </resources>

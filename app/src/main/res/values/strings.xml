@@ -221,16 +221,6 @@
 
     <string name="hide_config_title">Hide</string>
 
-    <!-- Hide Files Section -->
-    <string name="hide_files_title">Hide Files</string>
-    <string name="hide_files_desc">Add files or directories that should be hidden from apps</string>
-    <string name="hide_files_input_label">File or directory path</string>
-
-    <!-- Spoof Stat Files Section -->
-    <string name="spoof_stat_title">Spoof File Stats</string>
-    <string name="spoof_stat_desc">Add files whose stat information should be spoofed</string>
-    <string name="spoof_stat_input_label">File path</string>
-
     <!-- Spoof Uname Section -->
     <string name="spoof_uname_title">Spoof System Information</string>
     <string name="spoof_uname_desc">Modify system information reported by uname syscall</string>
@@ -238,8 +228,6 @@
     <string name="hidden_config_title">Hidden Configuration</string>
     <string name="hidden_config_desc">This section allows you to configure advanced system-level hiding and spoofing features. These settings can help bypass detection mechanisms in apps that check for root or modified system files.</string>
     <string name="hidden_config_note">Note: Changes take effect immediately after saving. Incorrect configurations may cause system instability.\nChanges take effects only in uid of exclude list</string>
-    <string name="hide_files_example">Example: TWRP, addon.d, lineage</string>
-    <string name="currently_hidden_files">Currently hidden files/directories:</string>
     <string name="clear_sysname">Clear sysname</string>
     <string name="clear_nodename">Clear nodename</string>
     <string name="clear_release">Clear release</string>
@@ -262,6 +250,7 @@
     <string name="uname_fields_explanation">Fields explanation:\n• sysname: Operating system name\n• nodename: Network node hostname\n• release: Kernel release version\n• version: Kernel version\n• machine: Hardware architecture\n• domainname: NIS/YP domain name</string>
 
     <!-- Common Actions -->
+    <string name="back">Back</string>
     <string name="add">Add</string>
     <string name="remove">Remove</string>
     <string name="save">Save</string>

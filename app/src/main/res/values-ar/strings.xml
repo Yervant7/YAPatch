@@ -209,4 +209,5 @@
     <string name="crash_handle_title">لقد تحطمت.</string>
     <string name="crash_handle_copy">نسخ سجل الأعطال</string>
     <string name="crash_handle_copied">تم نسخ سجل الأعطال إلى الحافظة.</string>
+    <string name="back">الرجوع</string>
 </resources>

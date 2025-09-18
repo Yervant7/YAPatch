@@ -213,4 +213,5 @@
     <string name="settings_lite_mode_mode_summary">APModule işlevleri etkinleştirildikten sonra hatalar gösterebilir, ancak bazı durumlarda tespiti etkili bir şekilde engelleyebilir. Yeniden başlatma gereklidir.</string>
     <string name="settings_force_overlayfs_mode">OverlayFS kullanımını zorla</string>
     <string name="settings_force_overlayfs_mode_summary">Kernel desteği mevcut olduğunda, Magic Mount yerine APModule’leri bağlamak için OverlayFS kullan. Yeniden başlatma gereklidir.</string>
+    <string name="back">Geri</string>
 </resources>

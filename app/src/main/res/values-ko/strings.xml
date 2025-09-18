@@ -209,4 +209,5 @@
     <string name="crash_handle_copy">충돌 로그 복사</string>
     <string name="apm_action">동작</string>
     <string name="crash_handle_copied">충돌 로그가 클립보드에 복사됨.</string>
+    <string name="back">뒤로</string>
 </resources>

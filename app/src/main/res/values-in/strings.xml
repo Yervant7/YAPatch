@@ -211,4 +211,5 @@
     <string name="settings_lite_mode_mode_summary">APModule mungkin gagal berfungsi setelah diaktifkan, tapi terkadang masih tetap efektif dalam menghindari deteksi. Reboot diperlukan.</string>
     <string name="settings_force_overlayfs_mode">Penggunaan Paksa OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Jika kernel mendukung, APMount menggunakan OverlayFS dibandingkan MagicMount. Reboot dibutuhkan.</string>
+    <string name="back">Kembali</string>
 </resources>

@@ -210,4 +210,5 @@
     <string name="apm_action">執行</string>
     <string name="crash_handle_copied">已將崩潰日誌複製到剪貼簿。</string>
     <string name="settings_force_overlayfs_mode">強制使用 OverlayFS</string>
+    <string name="back">返回</string>
 </resources>

@@ -211,4 +211,5 @@
     <string name="settings_lite_mode_mode_summary">Функции APModule могут проявлять сбои после включения, но в некоторых случаях они все еще могут эффективно избегать обнаружения. Требуется перезагрузка.</string>
     <string name="settings_force_overlayfs_mode">Принудительное использование OverlayFS</string>
     <string name="settings_force_overlayfs_mode_summary">Используйте OverlayFS для монтирования APModules вместо Magic Mount, когда поддержка ядра доступна. Требуется перезагрузка.</string>
+    <string name="back">Назад</string>
 </resources>

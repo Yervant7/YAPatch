@@ -206,4 +206,5 @@
     <string name="crash_handle_title">Aplikace selhala…</string>
     <string name="crash_handle_copy">Kopírovat protokol o selhání</string>
     <string name="crash_handle_copied">Kopírovat protokol o selhání do schránky.</string>
+    <string name="back">Zpět</string>
 </resources>
