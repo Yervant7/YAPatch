@@ -136,7 +136,7 @@ dependencies = [
  "serde_json",
  "walkdir",
  "which",
- "zip 5.1.1",
+ "zip",
  "zip-extensions",
 ]
 
@@ -1559,23 +1559,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "zip"
-version = "5.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f852905151ac8d4d06fdca66520a661c09730a74c6d4e2b0f27b436b382e532"
-dependencies = [
- "arbitrary",
- "crc32fast",
- "indexmap",
- "memchr",
-]
-
-[[package]]
 name = "zip-extensions"
 version = "0.8.3"
 source = "git+https://github.com/AndroidPatch/zip-extensions-rs.git?branch=master#6ab02d515fee354d8f7922b6f087f62a0a0caf44"
 dependencies = [
- "zip 4.6.1",
+ "zip",
 ]
 
 [[package]]
