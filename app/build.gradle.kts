@@ -1,8 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.android.build.gradle.tasks.PackageAndroidArtifact
-import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
 import java.net.URI
 
 plugins {
@@ -10,18 +8,23 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.lsplugin.apksign)
     alias(libs.plugins.lsplugin.resopt)
     alias(libs.plugins.lsplugin.cmaker)
     id("kotlin-parcelize")
 }
 
-val managerVersionCode: Int by rootProject.extra
-val managerVersionName: String by rootProject.extra
 val kernelPatchVersion: String by rootProject.extra
+
+apksign {
+    storeFileProperty = "KEYSTORE_FILE"
+    storePasswordProperty = "KEYSTORE_PASSWORD"
+    keyAliasProperty = "KEY_ALIAS"
+    keyPasswordProperty = "KEY_PASSWORD"
+}
 
 android {
     namespace = "me.yervant.yapatch"
-
     buildTypes {
         debug {
             isDebuggable = true
@@ -43,7 +46,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
 

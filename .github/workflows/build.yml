@@ -74,12 +74,16 @@ jobs:
 
       - name: Build with Gradle
         run: |
+          echo "${{ secrets.RELEASE_KEYSTORE_B64 }}" | base64 --decode > ${{ github.workspace }}/release.jks
           echo 'org.gradle.parallel=true' >> gradle.properties
           echo 'org.gradle.vfs.watch=true' >> gradle.properties
           echo 'org.gradle.jvmargs=-Xmx2048m' >> gradle.properties
           echo 'android.native.buildOutput=verbose' >> gradle.properties
           sed -i 's/org.gradle.configuration-cache=true//g' gradle.properties
-          ./gradlew clean assembleRelease
+          ./gradlew clean assembleRelease -PKEYSTORE_FILE=${{ github.workspace }}/release.jks \
+              -PKEYSTORE_PASSWORD=${{ secrets.RELEASE_KEYSTORE_PASSWORD }} \
+              -PKEY_ALIAS=${{ secrets.RELEASE_KEY_ALIAS }} \
+              -PKEY_PASSWORD=${{ secrets.RELEASE_KEY_PASSWORD }}
           echo "BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)" >> $GITHUB_ENV
 
       - name: Upload build artifact
