@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.kotlin.compose.compiler) apply false
 }
 
-project.ext.set("kernelPatchVersion", "0.17.5")
+project.ext.set("kernelPatchVersion", "0.17.6")
 
 val androidMinSdkVersion = 26
 val androidTargetSdkVersion = 35
