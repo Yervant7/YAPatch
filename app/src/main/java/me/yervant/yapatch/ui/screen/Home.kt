@@ -3,6 +3,11 @@ package me.yervant.yapatch.ui.screen
 import android.os.Build
 import android.system.Os
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -57,6 +62,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -81,14 +87,19 @@ import com.ramcosta.composedestinations.generated.destinations.InstallModeSelect
 import com.ramcosta.composedestinations.generated.destinations.PatchesDestination
 import com.ramcosta.composedestinations.generated.destinations.UnameScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import me.yervant.yapatch.APApplication
 import me.yervant.yapatch.Natives
 import me.yervant.yapatch.R
 import me.yervant.yapatch.apApp
 import me.yervant.yapatch.ui.component.ProvideMenuShape
+import me.yervant.yapatch.ui.component.rememberConfirmDialog
 import me.yervant.yapatch.ui.viewmodel.PatchesViewModel
+import me.yervant.yapatch.util.LatestVersionInfo
 import me.yervant.yapatch.util.Version
 import me.yervant.yapatch.util.Version.getManagerVersion
+import me.yervant.yapatch.util.checkNewVersion
 import me.yervant.yapatch.util.getSELinuxStatus
 import me.yervant.yapatch.util.reboot
 import me.yervant.yapatch.util.ui.APDialogBlurBehindUtils
@@ -124,6 +135,10 @@ fun HomeScreen(navigator: DestinationsNavigator) {
             KStatusCard(kpState, apState, navigator)
             if (kpState != APApplication.State.UNKNOWN_STATE && apState != APApplication.State.ANDROIDPATCH_INSTALLED) {
                 AStatusCard(apState)
+            }
+            val checkUpdate = APApplication.sharedPreferences.getBoolean("check_update", true)
+            if (checkUpdate) {
+                UpdateCard()
             }
             InfoCard(kpState, apState, navigator)
             Spacer(Modifier)
@@ -915,6 +930,44 @@ fun WarningCard(
             Text(
                 text = message, style = MaterialTheme.typography.bodyMedium
             )
+        }
+    }
+}
+
+@Composable
+fun UpdateCard() {
+    val latestVersionInfo = LatestVersionInfo()
+    val newVersion by produceState(initialValue = latestVersionInfo) {
+        value = withContext(Dispatchers.IO) {
+            checkNewVersion()
+        }
+    }
+    val currentVersionCode = managerVersion.second
+    val newVersionCode = newVersion.versionCode
+    val newVersionUrl = newVersion.downloadUrl
+    val changelog = newVersion.changelog
+
+    val uriHandler = LocalUriHandler.current
+    val title = stringResource(id = R.string.apm_changelog)
+    val updateText = stringResource(id = R.string.apm_update)
+
+    AnimatedVisibility(
+        visible = newVersionCode > currentVersionCode,
+        enter = fadeIn() + expandVertically(),
+        exit = shrinkVertically() + fadeOut()
+    ) {
+        val updateDialog = rememberConfirmDialog(onConfirm = { uriHandler.openUri(newVersionUrl) })
+        WarningCard(
+            message = stringResource(id = R.string.home_new_yapatch_found).format(newVersionCode),
+            MaterialTheme.colorScheme.outlineVariant
+        ) {
+            if (changelog.isEmpty()) {
+                uriHandler.openUri(newVersionUrl)
+            } else {
+                updateDialog.showConfirm(
+                    title = title, content = changelog, markdown = true, confirm = updateText
+                )
+            }
         }
     }
 }

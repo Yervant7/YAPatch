@@ -52,6 +52,39 @@ fun download(
     downloadManager.enqueue(request)
 }
 
+fun checkNewVersion(): LatestVersionInfo {
+    val url = "https://api.github.com/repos/Yervant7/YAPatch/releases/latest"
+    val defaultValue = LatestVersionInfo()
+    runCatching {
+        apApp.okhttpClient.newCall(okhttp3.Request.Builder().url(url).build()).execute()
+            .use { response ->
+                if (!response.isSuccessful) {
+                    return defaultValue
+                }
+                val body = response.body?.string() ?: return defaultValue
+
+                val json = org.json.JSONObject(body)
+                val changelog = json.optString("body")
+                val versionCode = json.getInt("name")
+
+                val assets = json.getJSONArray("assets")
+                for (i in 0 until assets.length()) {
+                    val asset = assets.getJSONObject(i)
+                    val name = asset.getString("name")
+                    if (!name.endsWith(".apk")) {
+                        continue
+                    }
+                    val downloadUrl = asset.getString("browser_download_url")
+
+                    return LatestVersionInfo(
+                        versionCode, downloadUrl, changelog
+                    )
+                }
+            }
+    }
+    return defaultValue
+}
+
 @Composable
 fun DownloadListener(context: Context, onDownloaded: (Uri) -> Unit) {
     DisposableEffect(context) {
